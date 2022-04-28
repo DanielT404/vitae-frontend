@@ -1,0 +1,46 @@
+.navWrapper {
+    background-color: #232323;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navList, .navSubList, .navTo, .navTo:hover, .navTo:visited {
+    color: #fff;
+    text-decoration: none;
+    list-style: none;
+}
+
+.navSubList {
+    margin-top: 0.5rem;
+    margin-left: 1.2rem;
+}
+
+.navText {
+    margin-left: 1rem;
+}
+
+.currentMainNav {
+    border-bottom: 3px solid #FF7272;
+}
+
+.currentSubNav {
+    background: #989898;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.navTo {
+    display: flex;
+    padding-top: 1rem;
+}
+
+.mainIcon {
+    color: #CAFAF4;
+}
+
+.mainIcon, .subIcon {
+    width: 20px;
+    height: 20px;
+}

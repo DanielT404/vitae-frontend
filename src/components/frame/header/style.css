@@ -1,0 +1,83 @@
+::-webkit-input-placeholder {
+    font-family: "Fira Mono", sans-serif;
+}
+::-moz-placeholder {
+    font-family: "Fira Mono", sans-serif;
+}
+:-ms-input-placeholder { 
+    font-family: "Fira Mono", sans-serif;
+}
+:-moz-placeholder {
+    font-family: "Fira Mono", sans-serif;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    background-color: #1A1A1A;
+    padding-left: 2rem;
+    justify-content: space-between;
+    height: 75px;
+}
+
+
+.navigation, .pathBox, .keywordBox {
+    display: flex;
+    align-items: center;
+}
+
+.keywordBox {
+    border: 1px solid #383838;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 1rem 10rem 1rem 1rem;
+}
+
+.keywordInput {
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+
+.pathBox {
+    width: 800px;
+    border: 1px solid #383838;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.path {
+    color: #fff;
+}
+
+.exit {
+    position: relative;
+    font-size: 1.5rem;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: #ff7272;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.navIcon {
+    font-size: 2rem;
+    padding-right: 2rem;
+    color: #E3E2E2;
+    cursor: pointer;
+}
+
+.notAvailableIcon {
+    color: #555555;
+}
+
+.httpButton {
+    color: #A6A6A6;
+    padding-right: 0.5rem;
+}

@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.redCircle {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: #FF7272;
+}
+
+.nameBox {
+    width: 200px;
+    line-height: 1rem;
+    border: 1px solid #1E1E1E;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #000;
+}
+
+.name {
+    font-size: 1.5rem;
+    letter-spacing: -3px;
+    font-weight: 400;
+}
+
+.underName {
+    font-size: 0.75rem;
+    font-weight: 100;
+}

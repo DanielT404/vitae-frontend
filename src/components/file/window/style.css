@@ -1,0 +1,46 @@
+.windowsBackground {
+    background-image: url("/assets/frame-bg.jpg");
+    background-size: cover;
+}
+
+.innerWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.innerWindowBox {
+    width: 800px;
+    height: 500px;
+    background: #232323;
+    margin-bottom: 35px;
+}
+
+.innerWindowNav {
+    display: flex;
+    align-items: center;
+    background: #141414;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.innerWindowContent {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.innerWindowImg {
+    height: calc(500px - 2.5rem);
+}
+
+.icon {
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.exitIcon {
+    color: #ff7272;
+}

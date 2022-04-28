@@ -1,0 +1,56 @@
+.windowsBackground {
+    background-image: url("/assets/frame-bg.jpg");
+    background-size: cover;
+}
+
+.desktopContent {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(12, 100px);
+    grid-auto-flow: column;
+    padding-top: 2rem;
+}
+
+.bodyFrame {
+    display: grid;
+    grid-template: 625px 625px / 0.2fr 1fr;
+    grid-template-areas: "sidebar content";
+}
+
+.innerBody {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12rem;
+    margin-left: 6rem;
+}
+
+.bodyContent {
+    color: #EFEEEE;
+    font-size: 1rem;
+}
+
+.text {
+    width: 65%;
+    text-align: justify;
+}
+
+.ctaBtn {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color:#EFEEEE;
+}
+
+.ctaSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7rem;
+}
+
+.btnLightGreen {
+    background-color: #85CF63;
+}
+
+.btnCyan {
+    background-color: #63CFCF;
+}

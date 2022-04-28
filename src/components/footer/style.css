@@ -1,0 +1,71 @@
+.footer {
+    display: flex;
+    background: hsla(0, 0%, 9%, 1);
+    color: #fff;
+    column-gap: 25px;
+    padding-left: 2rem;
+}
+
+.isActive {
+    border-bottom: 3px solid #FF7272;
+    background: hsla(0, 0%, 70%, 0.5);
+}
+
+.notActive {
+    border-bottom: 3px solid #FF7272;
+}
+
+.minimizedFileWrapper {
+    display: flex;
+    position: relative;
+    column-gap: 25px;
+    flex-wrap: wrap;
+}
+
+.minimizedOverview {
+    height: 240px;
+    background: #000;
+    position: absolute;
+    left: -40px;
+    opacity: 1;
+    bottom: 90px;
+    transition: all 4s ease-out;
+}
+
+.minimizedNav {
+    padding: 3px;
+    background: white;
+    right: 10px;
+    color: #000;
+    overflow: hidden;
+    font-size: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.minimizedNav h6 {
+    display: block;
+    padding-left: 1rem;
+    cursor: default;
+}
+
+.wrappedFile {
+    display: flex;
+    position: relative;
+    cursor: default;
+}
+
+.icon {
+    display: flex;
+    cursor: pointer;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.exitIcon {
+    color: #ff7272;
+}
+
