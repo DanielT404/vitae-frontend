@@ -1,5 +1,6 @@
+import { Fragment, h } from 'preact'
+
 import { route } from 'preact-router'
-import { h } from 'preact'
 import { useDispatch, useSelector } from 'react-redux'
 
 import handleNavigation from '../../../utils/functions/handleNavigation'
@@ -23,7 +24,7 @@ function HeaderFrame(props) {
         <div class={style.header}>
             <div class={style.navigation}>
                 {path == '/desktop' && (
-                    <>
+                    <Fragment>
                         <Icon
                             type="arrow_back"
                             class={`${style.navIcon} ${style.notAvailableIcon}`}
@@ -40,10 +41,10 @@ function HeaderFrame(props) {
                                 navHandler('next')
                             }}
                         />
-                    </>
+                    </Fragment>
                 )}
                 {path == '/contact' && (
-                    <>
+                    <Fragment>
                         <Icon
                             type="arrow_back"
                             class={style.navIcon}
@@ -60,10 +61,10 @@ function HeaderFrame(props) {
                                 navHandler('next')
                             }}
                         />
-                    </>
+                    </Fragment>
                 )}
                 {path !== '/desktop' && path !== '/contact' && (
-                    <>
+                    <Fragment>
                         <Icon
                             type="arrow_back"
                             class={style.navIcon}
@@ -80,7 +81,7 @@ function HeaderFrame(props) {
                                 navHandler('next')
                             }}
                         />
-                    </>
+                    </Fragment>
                 )}
                 <Icon type="autorenew" class={style.navIcon} />
                 <Icon type="arrow_upward" class={style.navIcon} />

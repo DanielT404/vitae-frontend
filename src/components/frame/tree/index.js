@@ -1,5 +1,6 @@
-import { Link } from 'preact-router'
 import { h } from 'preact'
+
+import { Link } from 'preact-router'
 
 import Icon from '../../material-icon'
 

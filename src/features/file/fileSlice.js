@@ -6,6 +6,7 @@ export const fileSlice = createSlice({
     initialState: {
         viewFileMode: false,
         fileInfo: {},
+        files: [],
         minimizedFiles: [],
     },
     reducers: {
@@ -14,6 +15,9 @@ export const fileSlice = createSlice({
         },
         closeFileModeView: (state) => {
             state.viewFileMode = false
+        },
+        setFiles: (state, action) => {
+            state.files = action.payload
         },
         updateFileInfo: (state, action) => {
             console.log(action)
@@ -62,6 +66,7 @@ export const {
     clearFileInfo,
     addMinimizedFile,
     closeMinimizedFile,
+    setFiles,
     toggleOnMinimizedHover,
 } = fileSlice.actions
 export default fileSlice.reducer

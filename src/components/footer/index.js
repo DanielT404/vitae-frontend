@@ -1,7 +1,8 @@
+import { Fragment, h } from 'preact'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'preact-router'
 
-import { toggleFrameView } from '/features/frame/frameSlice'
+import { toggleFrameView } from '../../features/frame/frameSlice'
 import {
     openFileModeView,
     updateFileInfo,
@@ -9,7 +10,7 @@ import {
     closeFileModeView,
     closeMinimizedFile,
     clearFileInfo,
-} from '/features/file/fileSlice'
+} from '../../features/file/fileSlice'
 
 import Icon from '../material-icon'
 import style from './style.css'
@@ -19,7 +20,6 @@ function Footer() {
     const isViewFrameModeActive = useSelector((state) => state.frame.value)
 
     // const onMinimizedFileHover = false;
-    console.log(minimizedFiles)
     // console.log(onMinimizedFileHover);
 
     const dispatch = useDispatch()
@@ -27,16 +27,16 @@ function Footer() {
     return (
         <footer class={style.footer}>
             {isViewFrameModeActive ? (
-                <>
+                <Fragment>
                     <Link class={style.icon}>
                         <Icon type="explore" />
                     </Link>
                     <Link class={`${style.icon} ${style.isActive}`}>
                         <Icon type="cast" />
                     </Link>
-                </>
+                </Fragment>
             ) : (
-                <>
+                <Fragment>
                     <Link class={`${style.icon} ${style.isActive}`}>
                         <Icon type="explore" />
                     </Link>
@@ -46,13 +46,13 @@ function Footer() {
                     >
                         <Icon type="cast" />
                     </Link>
-                </>
+                </Fragment>
             )}
             {minimizedFiles && (
                 <div class={style.minimizedFileWrapper}>
                     {minimizedFiles.map((file) => (
                         // file.isOnHover
-                        <>
+                        <Fragment>
                             <div
                                 class={style.wrappedFile}
                                 onMouseEnter={() =>
@@ -142,7 +142,7 @@ function Footer() {
                                     <Icon type={file.MaterialIcon} />
                                 </Link>
                             </div>
-                        </>
+                        </Fragment>
                     ))}
                 </div>
             )}

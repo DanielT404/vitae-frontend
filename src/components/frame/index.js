@@ -1,6 +1,7 @@
+import { h } from 'preact'
+
 import HeaderFrame from './header'
 import BodyFrame from './body'
-import { h } from 'preact'
 
 import style from './style.css'
 

@@ -1,4 +1,5 @@
-import styles from './style'
+import { h } from 'preact'
+import styles from './style.css'
 
 const YoutubeEmbed = (props) => {
     return (

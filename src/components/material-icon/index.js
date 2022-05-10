@@ -1,3 +1,5 @@
+import { h } from 'preact'
+
 function Icon(props) {
     const { onClick, onMouseEnter } = props
 

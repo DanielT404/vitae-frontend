@@ -1,32 +1,37 @@
+import { Fragment, h } from 'preact'
+
 import { Link } from 'preact-router'
-import { useEffect, useState } from 'preact/hooks'
-import { h } from 'preact'
+import { useDispatch, useSelector } from 'react-redux'
+import { useCallback, useEffect } from 'preact/hooks'
 
 import TreeFrame from '../tree'
 import WindowFrame from '../../file/window'
 import File from '../../file'
 
-import fileData from '../../../utils/functions/fileData'
-
 import style from './style.css'
-import { useSelector } from 'react-redux'
+import fetchFiles from '../../../utils/functions/fetchFiles'
+import { setFiles } from '../../../features/file/fileSlice'
 
 function BodyFrame(props) {
     const isViewFileMode = useSelector((state) => state.file.viewFileMode)
-    let [fileArr, setFileArr] = useState([])
+    const fileArr = useSelector((state) => state.file.files)
+
+    const dispatch = useDispatch()
+    const getFiles = useCallback(async () => {
+        const files = await fetchFiles()
+        dispatch(setFiles(files))
+    }, [])
 
     useEffect(() => {
-        fetch('http://localhost:3000/files')
-            .then((response) => response.json())
-            .then((data) => setFileArr(data))
-    }, [])
+        getFiles().catch(() => dispatch(setFiles([])))
+    }, [getFiles])
 
     return (
         <div class={style.bodyFrame}>
             <TreeFrame currentNav={props.page} />
 
             {props.page == 'desktop' && (
-                <>
+                <Fragment>
                     {isViewFileMode ? (
                         <WindowFrame />
                     ) : (
@@ -39,7 +44,7 @@ function BodyFrame(props) {
                                 ))}
                         </div>
                     )}
-                </>
+                </Fragment>
             )}
 
             {props.page !== 'desktop' && isViewFileMode && <WindowFrame />}

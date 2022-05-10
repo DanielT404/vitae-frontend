@@ -1,10 +1,11 @@
+import { h } from 'preact'
 import { Router } from 'preact-router'
 
 import Header from '../header'
 import YoutubeEmbed from '../youtube-embed'
 import Footer from '../footer'
 
-import View from '/routes/view'
+import View from '../../routes/view'
 
 import { useSelector } from 'react-redux'
 
