@@ -6,20 +6,19 @@ function handleNavigation(currentPath, type) {
         '/projects',
         '/resume',
         '/contact',
-    ]
-    const currentNav = (path) => path === currentPath
-    let currentNavIdx = availablePaths.findIndex(currentNav)
+    ];
+    const ABOUT_ME_PATH_IDX = 2;
+    const LAST_PATH_IDX = availablePaths.length - 1;
+    let currentNavPath = (path) => path === currentPath
+    let currentNavIdx = (currentPath === '/') ? ABOUT_ME_PATH_IDX : availablePaths.findIndex(currentNavPath)
 
-    if (currentPath === '/') {
-        currentNavIdx = 2
+    if(type == "back") {
+        return (currentNavIdx === 0 || currentPath === "/desktop") ? undefined : 
+                availablePaths[currentNavIdx - 1];
     }
-
-    if (currentNavIdx == 0 && type == 'back') return -1
-    if (currentNavIdx == availablePaths.length - 1 && type == 'next') return -1
-    if (currentPath == '/desktop' && type == 'back') return -1
-
-    if (type == 'next') return availablePaths[currentNavIdx + 1]
-    if (type == 'back') return availablePaths[currentNavIdx - 1]
+    if(type == "next") {
+        return (currentNavIdx === LAST_PATH_IDX) ? undefined : availablePaths[currentNavIdx + 1];
+    }
 }
 
 export default handleNavigation

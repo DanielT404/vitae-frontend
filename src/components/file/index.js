@@ -7,10 +7,7 @@ import { openFileModeView, updateFileInfo } from '../../features/file/fileSlice'
 
 function File(props) {
     const dispatch = useDispatch()
-
     const { data } = props
-
-    console.log(data)
 
     return (
         <div class={style.fileWrapper}>

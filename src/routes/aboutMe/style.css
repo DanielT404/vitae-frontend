@@ -1,0 +1,52 @@
+.text {
+    width: 65%;
+    text-align: justify;
+}
+
+.ctaBtn {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color:#EFEEEE;
+}
+
+.ctaSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7rem;
+}
+
+.btnLightGreen {
+    background-color: #85CF63;
+}
+
+.btnCyan {
+    background-color: #63CFCF;
+}
+
+@media screen and (max-width: 560px) {
+    .ctaSection {
+        display: block;
+        margin-top: 1.5rem;
+    }
+    .text {
+        width: 100%;
+        text-align: left;
+    }
+    .ctaBtn:last-child {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 560px) and (max-width: 1280px) {
+    .text {
+        width: 85%;
+    }
+    .ctaSection {
+        display: block;
+        margin-top: 2rem;
+    }
+    .ctaBtn:last-child {
+        margin-top: 1rem;
+    }
+}

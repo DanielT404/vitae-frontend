@@ -27,28 +27,22 @@ export const fileSlice = createSlice({
             state.fileInfo = {}
         },
         addMinimizedFile: (state, action) => {
-            const isMinimizedFileAlready = !!state.minimizedFiles.filter(
-                (file) => file.Key === action.payload.Key
-            ).length
-            if (!isMinimizedFileAlready) {
-                state.minimizedFiles.push({ ...action.payload })
-            } else {
-                const isMinimized = state.fileInfo?.isMinimized ?? -1
-                if (isMinimized !== -1) {
-                    // change file identifier if the file is opened multiple times
-                    let obj = Object.assign({}, action.payload)
-                    obj.Id = uuidv4()
-                    state.minimizedFiles.push(obj)
-                }
+            const isMinimized = state.fileInfo.isMinimized;
+            console.log(isMinimized)
+            if(!isMinimized) {
+                let obj = Object.assign({}, action.payload)
+                obj.Id = uuidv4()
+                state.minimizedFiles.push(obj)
             }
         },
         closeMinimizedFile: (state, action) => {
             state.minimizedFiles = state.minimizedFiles.filter(
-                (file) => file.id !== action.payload.id
+                (file) => file.Id !== action.payload.Id
             )
         },
         toggleOnMinimizedHover: (state, action) => {
             const arr = state.minimizedFiles
+            console.log(arr);
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i].Id === action.payload.Id) {
                     arr[i].isOnHover = !arr[i].isOnHover

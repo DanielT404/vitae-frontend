@@ -37,6 +37,7 @@
     background: transparent;
     border: none;
     color: #fff;
+    width: 170px;
 }
 
 
@@ -53,17 +54,18 @@
 }
 
 .exit {
-    position: relative;
-    font-size: 1.5rem;
-    top: 0;
-    right: 0;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
     background: #ff7272;
-    text-align: center;
     color: #fff;
     cursor: pointer;
+    font-size: 1.5rem;
+    height: 70px;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navIcon {
@@ -80,4 +82,122 @@
 .httpButton {
     color: #A6A6A6;
     padding-right: 0.5rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.expandSection {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    background: #ff7271;
+    cursor: pointer;
+    height: 75px;
+    line-height: 75px;
+}
+
+@media screen and (max-width: 560px) {
+    .header {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        height: 100%;
+    }
+
+    .navigation {
+        justify-content: flex-start;
+        order: 2;
+        padding: 0;
+        margin: 1rem 0 1rem 0.8rem;
+    }
+
+    .pathBox {
+        width: 100%;
+        margin: 0 0 1rem 0;
+        order: 3;
+        word-break: break-word;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .keywordBox {
+        margin: 0 0 1rem 0;
+        order: 4;
+    }
+
+
+    .exit {
+        width: 100%;
+        order: 1;
+        height: 50px;
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        -ms-flex-order: 5;
+        order: 5;
+        margin-top: 0.4rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        background: #7a91b1;
+        padding: 0.6rem;
+    }
+}
+
+@media (min-width: 560px) and (max-width: 1280px) {
+    .header {
+        flex-direction: column;
+        height: 100%;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-right: 2rem;
+    }
+
+    .navigation {
+        margin-bottom: 1rem;
+        order: 2;
+    }
+
+    .pathBox {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        order: 3;
+        padding: 0.75rem;
+    }
+
+    .keywordBox {
+        margin: 0;
+        order: 4;
+    }
+
+    .exit {
+        display: block;
+        text-align: center;
+        width: 35px;
+        height: auto;
+        order: 1;
+        margin-bottom: 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.2rem;
+        -ms-flex-order: 5;
+        order: 5;
+        margin-top: 0.4rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        background: #7a91b1;
+        padding: 0.6rem;
+    }
 }

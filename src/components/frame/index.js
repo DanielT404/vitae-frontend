@@ -5,12 +5,12 @@ import BodyFrame from './body'
 
 import style from './style.css'
 
-function Frame({ props }) {
-    const { path, page } = props
+function Frame({props}) {
+    const { path, page } = props;
     return (
         <div class={style.container}>
             <HeaderFrame path={path} />
-            <BodyFrame page={page}></BodyFrame>
+            <BodyFrame page={page} />
         </div>
     )
 }

@@ -1,14 +1,32 @@
 import { h } from 'preact'
 
 import { Link } from 'preact-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { hideNavTree, showNavTree, toggleNavTree } from '../../../features/frame/frameSlice'
+
+import useWindowDimensions from '../../../utils/hooks/useWindowDimensions'
 
 import Icon from '../../material-icon'
 
 import style from './style.css'
 
 function TreeFrame(props) {
+    let isNavTreeShown = useSelector((state) => state.frame.isNavTreeShown);
+    const { width, height } = useWindowDimensions();
+    const dispatch = useDispatch();
+    if(width <= 1280 && !isNavTreeShown) {
+        dispatch(hideNavTree());
+    }
+    if(width > 1280) {
+        dispatch(showNavTree());
+    }
+    console.log(isNavTreeShown);
+
+
+    
     return (
-        <div class={style.navWrapper}>
+        isNavTreeShown && 
+            <div class={style.navWrapper}>
             <nav class={style.navList}>
                 <li class={style.navTreeItem}>
                     <Link href="/desktop" class={style.navTo}>
@@ -100,7 +118,7 @@ function TreeFrame(props) {
                 </li>
             </nav>
         </div>
-    )
+        )
 }
 
 export default TreeFrame

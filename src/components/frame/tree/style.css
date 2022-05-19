@@ -44,3 +44,29 @@
     width: 20px;
     height: 20px;
 }
+
+@media screen and (max-width: 560px) {
+    .navWrapper {
+        display: block;
+        width: 100%;
+        padding: 2rem 0 3rem 0;
+    }
+
+    .navSubList {
+        margin-top: 0;
+        margin-left: 2rem;
+    }
+}
+
+@media (min-width: 560px) and (max-width: 1280px) {
+    .navWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}

@@ -10,6 +10,7 @@ import View from '../../routes/view'
 import { useSelector } from 'react-redux'
 
 function AppWrapper() {
+    const YOUTUBE_VIDEO_IDENTIFIER = "dQw4w9WgXcQ"
     let isViewFrameActive = useSelector((state) => state.frame.value)
     return (
         <div id="app">
@@ -24,7 +25,7 @@ function AppWrapper() {
                     <View path="/contact" page="contact" />
                 </Router>
             ) : (
-                <YoutubeEmbed embedId="dQw4w9WgXcQ" />
+                <YoutubeEmbed embedId={YOUTUBE_VIDEO_IDENTIFIER} />
             )}
             <Footer />
         </div>

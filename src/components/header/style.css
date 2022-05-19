@@ -3,6 +3,7 @@
     align-items: center;
     margin-top: 5rem;
     margin-bottom: 5rem;
+    margin-left: 2rem;
 }
 
 .redCircle {
@@ -30,4 +31,12 @@
 .underName {
     font-size: 0.75rem;
     font-weight: 100;
+}
+
+@media screen and (max-width: 560px) {
+    .header {
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
 }

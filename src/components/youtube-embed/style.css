@@ -3,3 +3,15 @@
     display: flex;
     justify-content: center;
 }
+
+.videoResponsive iframe {
+    width: 900px;
+    height: 600px;
+}
+
+@media screen and (max-width: 560px) {
+    .videoResponsive iframe {
+        width: 240px;
+        height: 100%;
+    }
+}

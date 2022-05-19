@@ -2,6 +2,8 @@ import { Fragment, h } from 'preact'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'preact-router'
 
+import useWindowDimensions from '../../utils/hooks/useWindowDimensions'
+
 import { toggleFrameView } from '../../features/frame/frameSlice'
 import {
     openFileModeView,
@@ -19,8 +21,8 @@ function Footer() {
     const minimizedFiles = useSelector((state) => state.file.minimizedFiles)
     const isViewFrameModeActive = useSelector((state) => state.frame.value)
 
-    // const onMinimizedFileHover = false;
-    // console.log(onMinimizedFileHover);
+    const { width , height } = useWindowDimensions();
+    const isOnMobileViewPort = width < 1280;
 
     const dispatch = useDispatch()
 
@@ -51,7 +53,6 @@ function Footer() {
             {minimizedFiles && (
                 <div class={style.minimizedFileWrapper}>
                     {minimizedFiles.map((file) => (
-                        // file.isOnHover
                         <Fragment>
                             <div
                                 class={style.wrappedFile}
@@ -62,7 +63,7 @@ function Footer() {
                                     dispatch(toggleOnMinimizedHover(file))
                                 }
                             >
-                                {file.isOnHover && (
+                                {(file.isOnHover && !isOnMobileViewPort) && (
                                     <div class={style.minimizedOverview}>
                                         <div class={style.minimizedNav}>
                                             <h6
@@ -82,7 +83,6 @@ function Footer() {
                                                 type="close"
                                                 class={`${style.icon} ${style.exitIcon}`}
                                                 onClick={() => {
-                                                    console.log('clicked 2')
                                                     dispatch(
                                                         closeFileModeView()
                                                     )

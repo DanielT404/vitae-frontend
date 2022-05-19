@@ -5,8 +5,6 @@ import {
     clearFileInfo,
     closeFileModeView,
     closeMinimizedFile,
-    toggleViewMinimizedFileHover,
-    toggleIsActive,
     updateFileInfo,
 } from '../../../features/file/fileSlice'
 
@@ -15,7 +13,6 @@ import style from './style.css'
 
 function WindowFrame(props) {
     const file = useSelector((state) => state.file.fileInfo)
-    console.log(file)
     const dispatch = useDispatch()
 
     return (
@@ -30,13 +27,13 @@ function WindowFrame(props) {
                             type="minimize"
                             class={style.icon}
                             onClick={() => {
+                                dispatch(addMinimizedFile(file))
                                 dispatch(
                                     updateFileInfo({
                                         ...file,
                                         isMinimized: true,
                                     })
                                 )
-                                dispatch(addMinimizedFile(file))
                                 dispatch(closeFileModeView())
                             }}
                         />
