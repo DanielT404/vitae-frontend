@@ -49,7 +49,7 @@
     .navWrapper {
         display: block;
         width: 100%;
-        padding: 2rem 0 3rem 0;
+        padding: 1rem 0 2rem 0.8rem;
     }
 
     .navSubList {
@@ -67,6 +67,6 @@
         width: 100%;
         height: 100%;
         padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
     }
 }
