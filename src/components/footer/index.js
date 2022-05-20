@@ -22,10 +22,8 @@ function Footer() {
     let minimizedFiles = useSelector((state) => state.file.minimizedFiles)
     let isViewFrameModeActive = useSelector((state) => state.frame.value)
 
-    if (typeof window !== 'undefined') {
-        const { width, height } = useWindowDimensions()
-        const isOnMobileViewPort = width < 1280
-    }
+    const { width } = typeof window !== 'undefined' && useWindowDimensions()
+    const isOnMobileViewPort = width < 1280
 
     return (
         <footer class={style.footer}>
@@ -64,70 +62,82 @@ function Footer() {
                                     dispatch(toggleOnMinimizedHover(file))
                                 }
                             >
-                                {file.isOnHover && !isOnMobileViewPort && (
-                                    <div class={style.minimizedOverview}>
-                                        <div class={style.minimizedNav}>
-                                            <h6
-                                                onClick={() => {
-                                                    dispatch(openFileModeView())
-                                                    dispatch(
-                                                        updateFileInfo({
-                                                            ...file,
-                                                            isMinimized: false,
-                                                        })
-                                                    )
-                                                }}
-                                            >
-                                                {file.Key}
-                                            </h6>
-                                            <Icon
-                                                type="close"
-                                                class={`${style.icon} ${style.exitIcon}`}
-                                                onClick={() => {
-                                                    dispatch(
-                                                        closeFileModeView()
-                                                    )
-                                                    dispatch(
-                                                        closeMinimizedFile(file)
-                                                    )
-                                                    dispatch(clearFileInfo())
-                                                }}
-                                            />
-                                        </div>
-                                        {file.Type === 'image' && (
-                                            <img
-                                                src={file.ResourcePath}
-                                                style="width: 100%; height: 100%"
-                                                onClick={() => {
-                                                    dispatch(openFileModeView())
-                                                    dispatch(
-                                                        updateFileInfo({
-                                                            ...file,
-                                                            isMinimized: false,
-                                                        })
-                                                    )
-                                                }}
-                                            />
-                                        )}
-                                        {file.Type === 'text' && (
-                                            <div
-                                                class="textWrap"
-                                                style="cursor: pointer;"
-                                                onClick={() => {
-                                                    dispatch(openFileModeView())
-                                                    dispatch(
-                                                        updateFileInfo({
-                                                            ...file,
-                                                            isMinimized: false,
-                                                        })
-                                                    )
-                                                }}
-                                            >
-                                                <h5>{file.Contents}</h5>
+                                {file.isOnHover &&
+                                    typeof window !== 'undefined' &&
+                                    !isOnMobileViewPort && (
+                                        <div class={style.minimizedOverview}>
+                                            <div class={style.minimizedNav}>
+                                                <h6
+                                                    onClick={() => {
+                                                        dispatch(
+                                                            openFileModeView()
+                                                        )
+                                                        dispatch(
+                                                            updateFileInfo({
+                                                                ...file,
+                                                                isMinimized: true,
+                                                            })
+                                                        )
+                                                    }}
+                                                >
+                                                    {file.Key}
+                                                </h6>
+                                                <Icon
+                                                    type="close"
+                                                    class={`${style.icon} ${style.exitIcon}`}
+                                                    onClick={() => {
+                                                        dispatch(
+                                                            closeFileModeView()
+                                                        )
+                                                        dispatch(
+                                                            closeMinimizedFile(
+                                                                file
+                                                            )
+                                                        )
+                                                        dispatch(
+                                                            clearFileInfo()
+                                                        )
+                                                    }}
+                                                />
                                             </div>
-                                        )}
-                                    </div>
-                                )}
+                                            {file.Type === 'image' && (
+                                                <img
+                                                    src={file.ResourcePath}
+                                                    style="width: 100%; height: 100%"
+                                                    onClick={() => {
+                                                        dispatch(
+                                                            openFileModeView()
+                                                        )
+                                                        dispatch(
+                                                            updateFileInfo({
+                                                                ...file,
+                                                                isMinimized: true,
+                                                            })
+                                                        )
+                                                    }}
+                                                />
+                                            )}
+                                            {file.Type === 'text' && (
+                                                <div
+                                                    class="textWrap"
+                                                    style="cursor: pointer;"
+                                                    onClick={() => {
+                                                        dispatch(
+                                                            openFileModeView()
+                                                        )
+                                                        dispatch(
+                                                            updateFileInfo({
+                                                                ...file,
+                                                                isMinimized: true,
+                                                            })
+                                                        )
+                                                    }}
+                                                >
+                                                    <h5>{file.Contents}</h5>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
                                 <Link
                                     class={`${style.icon} ${style.notActive}`}
                                     onClick={() => {
