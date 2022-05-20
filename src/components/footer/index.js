@@ -18,13 +18,14 @@ import Icon from '../material-icon'
 import style from './style.css'
 
 function Footer() {
-    const minimizedFiles = useSelector((state) => state.file.minimizedFiles)
-    const isViewFrameModeActive = useSelector((state) => state.frame.value)
-
-    const { width , height } = useWindowDimensions();
-    const isOnMobileViewPort = width < 1280;
-
     const dispatch = useDispatch()
+    let minimizedFiles = useSelector((state) => state.file.minimizedFiles)
+    let isViewFrameModeActive = useSelector((state) => state.frame.value)
+
+    if (typeof window !== 'undefined') {
+        const { width, height } = useWindowDimensions()
+        const isOnMobileViewPort = width < 1280
+    }
 
     return (
         <footer class={style.footer}>
@@ -63,7 +64,7 @@ function Footer() {
                                     dispatch(toggleOnMinimizedHover(file))
                                 }
                             >
-                                {(file.isOnHover && !isOnMobileViewPort) && (
+                                {file.isOnHover && !isOnMobileViewPort && (
                                     <div class={style.minimizedOverview}>
                                         <div class={style.minimizedNav}>
                                             <h6
