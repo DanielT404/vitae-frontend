@@ -1,9 +1,12 @@
 .footer {
-    display: flex;
-    background: hsla(0, 0%, 9%, 1);
+    margin-left: 2rem;
+    background: #171717;
     color: #fff;
     column-gap: 25px;
+    display: flex;
     padding-left: 2rem;
+    bottom: 0;
+    width: calc(100% - 4rem);
 }
 
 .isActive {
@@ -23,13 +26,15 @@
 }
 
 .minimizedOverview {
-    height: 240px;
     background: #000;
-    position: absolute;
+    height: 270px;
+    width: 170px;
     left: -40px;
     opacity: 1;
-    bottom: 90px;
+    position: absolute;
     transition: all 4s ease-out;
+    transform: translate(0, -100%);
+    overflow: hidden;
 }
 
 .minimizedNav {
@@ -72,9 +77,10 @@
 
 @media screen and (max-width: 560px) {
     .footer {
-        position: absolute;
-        left: 0;
         bottom: 0;
+        left: 0;
+        position: absolute;
         width: 100%;
+        margin-left: 0;
     }
 }

@@ -1,9 +1,9 @@
 .container {
-    width: calc(100% - 4rem);
-    height: 700px;
     background-color: #383838;
+    font-family: Fira Mono, sans-serif;
     margin-left: 2rem;
-    font-family: "Fira Mono", sans-serif;
+    height: 700px;
+    width: calc(100% - 4rem);
 }
 
 @media screen and (max-width: 560px) {

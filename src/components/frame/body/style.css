@@ -1,7 +1,8 @@
 .bodyFrame {
     display: grid;
-    grid-template: 625px 625px / 0.2fr 1fr;
-    grid-template-areas: "sidebar content";
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: auto;
+    height: calc(100% - 75px);
 }
 
 .innerBody {

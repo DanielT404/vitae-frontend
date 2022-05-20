@@ -1,9 +1,18 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    padding: 2rem;
+}
+
+.icon {
+    font-size: 2.5rem;
+}
+
 .header {
     display: flex;
     align-items: center;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-left: 2rem;
 }
 
 .redCircle {
@@ -16,10 +25,10 @@
 .nameBox {
     width: 200px;
     line-height: 1rem;
-    border: 1px solid #1E1E1E;
+    border: 1px solid #fff;
     padding: 0.5rem;
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 .name {

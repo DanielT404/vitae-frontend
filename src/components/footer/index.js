@@ -133,7 +133,7 @@ function Footer() {
                                                         )
                                                     }}
                                                 >
-                                                    <h5>{file.Contents}</h5>
+                                                    <p>{file.Contents}</p>
                                                 </div>
                                             )}
                                         </div>
