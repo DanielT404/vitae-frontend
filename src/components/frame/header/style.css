@@ -14,10 +14,21 @@
 .header {
     position: relative;
     display: flex;
-    background-color: #1A1A1A;
     padding-left: 2rem;
     justify-content: space-between;
     height: 75px;
+}
+
+.darkHeaderBg {
+    background: #1A1A1A;
+}
+
+.lightHeaderBg {
+    background: #fff;
+}
+
+.borderBottomLight {
+    border-bottom: 10px solid #f1f1f1;
 }
 
 
@@ -36,8 +47,15 @@
 .keywordInput {
     background: transparent;
     border: none;
-    color: #fff;
     width: 170px;
+}
+
+.keywordInputLightColor {
+    color: #1A1A1A;
+}
+
+.keywordInputDarkColor {
+    color: #fff;
 }
 
 
@@ -49,34 +67,46 @@
     cursor: pointer;
 }
 
-.path {
+.pathDark {
     color: #fff;
 }
 
+.pathLight { 
+    color: #1c1c1c;
+}
+
 .exit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
     background: #ff7272;
     color: #fff;
     cursor: pointer;
     font-size: 1.5rem;
-    height: 70px;
-    position: relative;
-    right: 0;
-    top: 0;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .navIcon {
     font-size: 2rem;
     padding-right: 2rem;
-    color: #E3E2E2;
     cursor: pointer;
 }
 
-.notAvailableIcon {
+.navIconLight {
+    color: #444444;
+}
+
+.navIconDark {
+    color: #E3E2E2;
+}
+
+.notAvailableIconDark {
     color: #555555;
+}
+
+.notAvailableIconLight {
+    color: #717171;
 }
 
 .httpButton {

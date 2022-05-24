@@ -1,9 +1,15 @@
 .container {
-    background-color: #383838;
-    font-family: Fira Mono, sans-serif;
+    font-family: "Fira Mono", sans-serif;
     margin-left: 2rem;
     height: 700px;
     width: calc(100% - 4rem);
+}
+.lightBg {
+    background: #fcfcfc;
+}
+
+.darkBg {
+    background: #383838;
 }
 
 @media screen and (max-width: 560px) {

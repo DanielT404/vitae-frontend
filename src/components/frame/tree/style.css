@@ -1,15 +1,29 @@
 .navWrapper {
-    background-color: #232323;
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
 }
 
+.navWrapperDarkBg {
+    background: #232323;
+}
+
+.navWrapperLightBg {
+    background: #fff;
+}
+
 .navList, .navSubList, .navTo, .navTo:hover, .navTo:visited {
-    color: #fff;
     text-decoration: none;
     list-style: none;
+}
+
+.navListLightColor {
+    color: #606060;
+}
+
+.navListDarkColor {
+    color: #808080;
 }
 
 .navSubList {
@@ -25,19 +39,32 @@
     border-bottom: 3px solid #FF7272;
 }
 
-.currentSubNav {
+.currentSubNavLight {
+    background: #404040;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.currentSubNavDark {
     background: #989898;
     padding-bottom: 1rem;
     margin-top: 1rem;
+    color: #fff;
 }
 
 .navTo {
     display: flex;
     padding-top: 1rem;
+    padding-left: 1rem;
 }
 
-.mainIcon {
+.mainIconDark {
     color: #CAFAF4;
+}
+
+.mainIconLight {
+    color: #000000;
 }
 
 .mainIcon, .subIcon {

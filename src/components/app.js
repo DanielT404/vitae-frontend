@@ -3,10 +3,12 @@ import AppWrapper from './app-wrapper'
 
 import Theme from '../utils/contexts/Theme'
 import store from './store'
+import { useState } from 'preact/hooks'
 
 function App() {
+    const [theme, setTheme] = useState('dark')
     return (
-        <Theme.Provider value="dark">
+        <Theme.Provider value={{ theme, setTheme }}>
             <Provider store={store}>
                 <AppWrapper />
             </Provider>

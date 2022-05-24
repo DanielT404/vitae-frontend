@@ -6,8 +6,31 @@
     padding: 2rem;
 }
 
+.toggleTheme {
+    text-align: center;
+}
+
+.textBlack {
+    color: #000;
+}
+
+.light {
+    border: 1px solid #1a1a1a !important;
+    color: #1a1a1a !important;
+}
+
 .icon {
     font-size: 2.5rem;
+    cursor: pointer;
+}
+
+
+.lightSwitch {
+    color: #fff962;
+}
+
+.darkSwitchIcon {
+    color: black;
 }
 
 .header {
@@ -39,7 +62,7 @@
 
 .underName {
     font-size: 0.75rem;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 @media screen and (max-width: 560px) {

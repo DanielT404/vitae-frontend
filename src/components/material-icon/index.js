@@ -5,7 +5,7 @@ function Icon(props) {
 
     return (
         <span
-            class={`material-icons ${props.class}`}
+            class={`material-icons ${props?.class}`}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
         >

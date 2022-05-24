@@ -1,6 +1,7 @@
 import { h } from 'preact'
 
 import { Link } from 'preact-router'
+import { useContext } from 'preact/hooks'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     hideNavTree,
@@ -10,12 +11,14 @@ import {
 
 import useWindowDimensions from '../../../utils/hooks/useWindowDimensions'
 
+import Theme from '../../../utils/contexts/Theme'
 import Icon from '../../material-icon'
 
 import style from './style.css'
 
 function TreeFrame(props) {
     const dispatch = useDispatch()
+    const { theme } = useContext(Theme)
     let isNavTreeShown = useSelector((state) => state.frame.isNavTreeShown)
     if (typeof window !== 'undefined') {
         const { width, height } = useWindowDimensions()
@@ -28,14 +31,37 @@ function TreeFrame(props) {
     }
     return (
         isNavTreeShown && (
-            <div class={style.navWrapper}>
-                <nav class={style.navList}>
+            <div
+                class={`${style.navWrapper} ${
+                    theme == 'light'
+                        ? style.navWrapperLightBg
+                        : style.navWrapperDarkBg
+                }`}
+            >
+                <nav
+                    class={`${style.navList} ${
+                        theme == 'light'
+                            ? style.navListLightColor
+                            : style.navListDarkColor
+                    }`}
+                >
                     <li class={style.navTreeItem}>
-                        <Link href="/desktop" class={style.navTo}>
+                        <Link
+                            href="/desktop"
+                            class={`${style.navTo} ${
+                                theme == 'light'
+                                    ? style.navListLightColor
+                                    : style.navListDarkColor
+                            }`}
+                        >
                             <Icon
                                 type="desktop_windows"
-                                class={style.mainIcon}
-                            />{' '}
+                                class={
+                                    theme == 'light'
+                                        ? style.mainIconLight
+                                        : style.mainIconDark
+                                }
+                            />
                             <span
                                 class={`${style.navText} ${
                                     props.currentNav == 'desktop'
@@ -48,8 +74,22 @@ function TreeFrame(props) {
                         </Link>
                     </li>
                     <li class={style.navTreeItem}>
-                        <Link href="/about-me" class={style.navTo}>
-                            <Icon type="star" class={style.mainIcon} />{' '}
+                        <Link
+                            href="/about-me"
+                            class={`${style.navTo} ${
+                                theme == 'light'
+                                    ? style.navListLightColor
+                                    : style.navListDarkColor
+                            }`}
+                        >
+                            <Icon
+                                type="star"
+                                class={
+                                    theme == 'light'
+                                        ? style.mainIconLight
+                                        : style.mainIconDark
+                                }
+                            />
                             <span
                                 class={`${style.navText} ${
                                     props.currentNav !== 'desktop'
@@ -64,9 +104,17 @@ function TreeFrame(props) {
                             <li class={style.navTreeSubItem}>
                                 <Link
                                     href="/about-me"
-                                    class={`${style.navTo} ${
-                                        props.currentNav == 'aboutMe'
-                                            ? style.currentSubNav
+                                    class={`${`${style.navTo} ${
+                                        theme == 'light'
+                                            ? style.navListLightColor
+                                            : style.navListDarkColor
+                                    }`} ${
+                                        props.currentNav == 'aboutMe' &&
+                                        theme == 'light'
+                                            ? style.currentSubNavLight
+                                            : props.currentNav == 'aboutMe' &&
+                                              theme == 'dark'
+                                            ? style.currentSubNavDark
                                             : ''
                                     }`}
                                 >
@@ -77,9 +125,17 @@ function TreeFrame(props) {
                             <li class={style.navTreeSubItem}>
                                 <Link
                                     href="/projects"
-                                    class={`${style.navTo} ${
-                                        props.currentNav == 'projects'
-                                            ? style.currentSubNav
+                                    class={`${`${style.navTo} ${
+                                        theme == 'light'
+                                            ? style.navListLightColor
+                                            : style.navListDarkColor
+                                    }`} ${
+                                        props.currentNav == 'projects' &&
+                                        theme == 'light'
+                                            ? style.currentSubNavLight
+                                            : props.currentNav == 'projects' &&
+                                              theme == 'dark'
+                                            ? style.currentSubNavDark
                                             : ''
                                     }`}
                                 >
@@ -93,9 +149,17 @@ function TreeFrame(props) {
                             <li class={style.navTreeSubItem}>
                                 <Link
                                     href="/resume"
-                                    class={`${style.navTo} ${
-                                        props.currentNav == 'resume'
-                                            ? style.currentSubNav
+                                    class={`${`${style.navTo} ${
+                                        theme == 'light'
+                                            ? style.navListLightColor
+                                            : style.navListDarkColor
+                                    }`} ${
+                                        props.currentNav == 'resume' &&
+                                        theme == 'light'
+                                            ? style.currentSubNavLight
+                                            : props.currentNav == 'resume' &&
+                                              theme == 'dark'
+                                            ? style.currentSubNavDark
                                             : ''
                                     }`}
                                 >
@@ -109,9 +173,17 @@ function TreeFrame(props) {
                             <li class={style.navTreeSubItem}>
                                 <Link
                                     href="/contact"
-                                    class={`${style.navTo} ${
-                                        props.currentNav == 'contact'
-                                            ? style.currentSubNav
+                                    class={`${`${style.navTo} ${
+                                        theme == 'light'
+                                            ? style.navListLightColor
+                                            : style.navListDarkColor
+                                    }`} ${
+                                        props.currentNav == 'contact' &&
+                                        theme == 'light'
+                                            ? style.currentSubNavLight
+                                            : props.currentNav == 'contact' &&
+                                              theme == 'dark'
+                                            ? style.currentSubNavDark
                                             : ''
                                     }`}
                                 >

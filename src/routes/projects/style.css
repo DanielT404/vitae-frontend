@@ -1,9 +1,7 @@
 .grid {
     display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-rows: max-content;
-    grid-auto-flow: column;
-    row-gap: 4rem;
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     column-gap: 4rem;
     width: 100%;
     height: 100%;
@@ -33,6 +31,8 @@
 }
 
 .cardExternalLink {
+    display: flex;
+    align-items: center;
     background: #ff7271;
     margin-top: 1rem;
     cursor: pointer;
@@ -41,12 +41,12 @@
     width: 100%;
 }
 
-.bold {
-    font-weight: 600;
+.ctaText {
+    margin-left: 10px;
 }
 
-.navIcon {
-    background: yellow;
+.bold {
+    font-weight: 600;
 }
 
 @media screen and (max-width: 560px) {
