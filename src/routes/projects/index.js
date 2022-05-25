@@ -8,7 +8,7 @@ function Projects() {
             <div class={style.card}>
                 <h1 class={style.cardHeader}>Web scraper</h1>
                 <h2 class={style.cardSubHeader}>
-                    js (puppeteer / xlsx / cross-fetch)
+                    js (puppeteers / xlsx / cross-fetch)
                 </h2>
                 <p class={style.cardDescription}>
                     <span class={style.bold}>Client</span>: small business in

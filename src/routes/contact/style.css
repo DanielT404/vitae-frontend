@@ -40,3 +40,10 @@
 .errorBg {
     background: #ff7272;
 }
+
+@media screen and (max-width: 560px) {
+    .notification {
+        position: static;
+        margin-bottom: 1rem;
+    }
+}
