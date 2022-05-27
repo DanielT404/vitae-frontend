@@ -1,0 +1,62 @@
+.minimizedFileWrapper {
+  display: flex;
+  position: relative;
+  column-gap: 25px;
+  flex-wrap: wrap;
+}
+
+.wrappedFile {
+  display: flex;
+  position: relative;
+  cursor: default;
+}
+
+.isActive {
+  border-bottom: 3px solid #ff7272;
+  background: hsla(0, 0%, 92%, 0.5);
+}
+
+.minimizedOverview {
+  background: #000;
+  height: 270px;
+  width: 170px;
+  left: -40px;
+  opacity: 1;
+  position: absolute;
+  transition: all 4s ease-out;
+  transform: translate(0, -100%);
+  overflow: hidden;
+}
+
+.minimizedNav {
+  padding: 3px;
+  background: white;
+  right: 10px;
+  color: #000;
+  overflow: hidden;
+  font-size: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.minimizedNav h6 {
+  display: block;
+  padding-left: 1rem;
+  cursor: default;
+}
+
+.icon {
+  display: flex;
+  cursor: pointer;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid #ff7272;
+}
+
+.exitIcon {
+  color: #ff7272;
+  border-bottom: none;
+}

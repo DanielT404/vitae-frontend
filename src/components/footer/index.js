@@ -1,164 +1,38 @@
-import { Fragment, h } from 'preact'
-import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'preact-router'
+import { Fragment, h } from 'preact';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'preact-router';
 
-import useWindowDimensions from '../../utils/hooks/useWindowDimensions'
+import { toggleFrameView } from '../../features/frame/frameSlice';
 
-import { toggleFrameView } from '../../features/frame/frameSlice'
-import {
-    openFileModeView,
-    updateFileInfo,
-    toggleOnMinimizedHover,
-    closeFileModeView,
-    closeMinimizedFile,
-    clearFileInfo,
-} from '../../features/file/fileSlice'
-
-import Icon from '../material-icon'
-import style from './style.css'
+import Icon from '../material-icon';
+import style from './style.css';
+import MinimizedFiles from '../file/minimized';
 
 function Footer() {
-    const dispatch = useDispatch()
-    let minimizedFiles = useSelector((state) => state.file.minimizedFiles)
-    let isViewFrameModeActive = useSelector((state) => state.frame.value)
-
-    const { width } = typeof window !== 'undefined' && useWindowDimensions()
-    const isOnMobileViewPort = width < 1280
-
-    return (
-        <footer class={style.footer}>
-            {isViewFrameModeActive ? (
-                <Fragment>
-                    <Link class={style.icon}>
-                        <Icon type="explore" />
-                    </Link>
-                    <Link class={`${style.icon} ${style.isActive}`}>
-                        <Icon type="cast" />
-                    </Link>
-                </Fragment>
-            ) : (
-                <Fragment>
-                    <Link class={`${style.icon} ${style.isActive}`}>
-                        <Icon type="explore" />
-                    </Link>
-                    <Link
-                        class={style.icon}
-                        onClick={() => dispatch(toggleFrameView())}
-                    >
-                        <Icon type="cast" />
-                    </Link>
-                </Fragment>
-            )}
-            {minimizedFiles && (
-                <div class={style.minimizedFileWrapper}>
-                    {minimizedFiles.map((file) => (
-                        <Fragment>
-                            <div
-                                class={style.wrappedFile}
-                                onMouseEnter={() =>
-                                    dispatch(toggleOnMinimizedHover(file))
-                                }
-                                onMouseLeave={() =>
-                                    dispatch(toggleOnMinimizedHover(file))
-                                }
-                            >
-                                {file.isOnHover &&
-                                    typeof window !== 'undefined' &&
-                                    !isOnMobileViewPort && (
-                                        <div class={style.minimizedOverview}>
-                                            <div class={style.minimizedNav}>
-                                                <h6
-                                                    onClick={() => {
-                                                        dispatch(
-                                                            openFileModeView()
-                                                        )
-                                                        dispatch(
-                                                            updateFileInfo({
-                                                                ...file,
-                                                                isMinimized: true,
-                                                            })
-                                                        )
-                                                    }}
-                                                >
-                                                    {file.Key}
-                                                </h6>
-                                                <Icon
-                                                    type="close"
-                                                    class={`${style.icon} ${style.exitIcon}`}
-                                                    onClick={() => {
-                                                        dispatch(
-                                                            closeFileModeView()
-                                                        )
-                                                        dispatch(
-                                                            closeMinimizedFile(
-                                                                file
-                                                            )
-                                                        )
-                                                        dispatch(
-                                                            clearFileInfo()
-                                                        )
-                                                    }}
-                                                />
-                                            </div>
-                                            {file.Type === 'image' && (
-                                                <img
-                                                    src={file.ResourcePath}
-                                                    style="width: 100%; height: 100%"
-                                                    onClick={() => {
-                                                        dispatch(
-                                                            openFileModeView()
-                                                        )
-                                                        dispatch(
-                                                            updateFileInfo({
-                                                                ...file,
-                                                                isMinimized: true,
-                                                            })
-                                                        )
-                                                    }}
-                                                />
-                                            )}
-                                            {file.Type === 'text' && (
-                                                <div
-                                                    class="textWrap"
-                                                    style="cursor: pointer;"
-                                                    onClick={() => {
-                                                        dispatch(
-                                                            openFileModeView()
-                                                        )
-                                                        dispatch(
-                                                            updateFileInfo({
-                                                                ...file,
-                                                                isMinimized: true,
-                                                            })
-                                                        )
-                                                    }}
-                                                >
-                                                    <p>{file.Contents}</p>
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                <Link
-                                    class={`${style.icon} ${style.notActive}`}
-                                    onClick={() => {
-                                        dispatch(openFileModeView())
-                                        dispatch(
-                                            updateFileInfo({
-                                                ...file,
-                                                isMinimized: true,
-                                            })
-                                        )
-                                    }}
-                                >
-                                    <Icon type={file.MaterialIcon} />
-                                </Link>
-                            </div>
-                        </Fragment>
-                    ))}
-                </div>
-            )}
-        </footer>
-    )
+  const dispatch = useDispatch();
+  const isViewFrameModeActive = useSelector((state) => state.frame.value);
+  return (
+    <footer class={style.footer}>
+      <Fragment>
+        <Link
+          class={`${style.icon} ${!isViewFrameModeActive && style.isActive}`}
+        >
+          <Icon type="explore" />
+        </Link>
+        <Link
+          class={`${style.icon} ${isViewFrameModeActive && style.isActive}`}
+        >
+          <Icon
+            type="cast"
+            onClick={() =>
+              !isViewFrameModeActive && dispatch(toggleFrameView())
+            }
+          />
+        </Link>
+      </Fragment>
+      <MinimizedFiles />
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

@@ -1,28 +1,42 @@
-import ReCAPTCHA from 'react-google-recaptcha'
-import ReactDOM, { forwardRef } from 'preact/compat'
-import { useEffect } from 'preact/hooks'
+import ReCAPTCHA from 'react-google-recaptcha';
+import ReactDOM, { forwardRef } from 'preact/compat';
+import { useEffect, useRef } from 'preact/hooks';
 
-import { useDispatch } from 'react-redux'
-import { updateToken } from '../../features/captcha/captchaSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  updateToken,
+  updateCaptchaSubmit
+} from '../../features/captcha/captchaSlice';
 
 const Captcha = forwardRef((props, ref) => {
-    const dispatch = useDispatch()
-    useEffect(() => {
-        function handleChange(value) {
-            dispatch(updateToken({ token: value }))
-        }
-        function handleExpire() {
-            dispatch(updateToken({ token: null }))
-        }
-        ReactDOM.render(
-            <ReCAPTCHA
-                sitekey="6LeSFhcgAAAAAP9tpyl7XTkbmAFjSvP3ukCPb91w"
-                onChange={handleChange}
-                onExpire={handleExpire}
-            />,
-            ref.current
-        )
-    }, [])
-})
+  const dispatch = useDispatch();
+  const captchaRef = useRef({});
+  const isCaptchaSubmitted = useSelector((state) => state.captcha.hasSubmitted);
+  function handleChange(value) {
+    dispatch(updateToken({ token: value }));
+  }
+  function handleExpire() {
+    dispatch(updateToken({ token: null }));
+    dispatch(updateCaptchaSubmit({ hasSubmitted: false }));
+  }
 
-export default Captcha
+  if (isCaptchaSubmitted) {
+    dispatch(updateToken({ token: null }));
+    captchaRef.current.reset();
+    dispatch(updateCaptchaSubmit({ hasSubmitted: false }));
+  }
+
+  useEffect(() => {
+    ReactDOM.render(
+      <ReCAPTCHA
+        ref={captchaRef}
+        sitekey="6LeSFhcgAAAAAP9tpyl7XTkbmAFjSvP3ukCPb91w"
+        onChange={handleChange}
+        onExpire={handleExpire}
+      />,
+      ref.current
+    );
+  }, []);
+});
+
+export default Captcha;

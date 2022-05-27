@@ -1,74 +1,73 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
-    align-items: center;
-    padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  padding: 2rem;
 }
 
 .toggleTheme {
-    text-align: center;
+  text-align: center;
 }
 
 .textBlack {
-    color: #000;
+  color: #000;
 }
 
 .light {
-    border: 1px solid #1a1a1a !important;
-    color: #1a1a1a !important;
+  border: 1px solid #1a1a1a !important;
+  color: #1a1a1a !important;
 }
 
 .icon {
-    font-size: 2.5rem;
-    cursor: pointer;
+  font-size: 2.5rem;
+  cursor: pointer;
 }
 
-
 .lightSwitch {
-    color: #fff962;
+  color: #fff962;
 }
 
 .darkSwitchIcon {
-    color: black;
+  color: black;
 }
 
 .header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .redCircle {
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
-    background-color: #FF7272;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  background-color: #ff7272;
 }
 
 .nameBox {
-    width: 200px;
-    line-height: 1rem;
-    border: 1px solid #fff;
-    padding: 0.5rem;
-    text-decoration: none;
-    color: #fff;
+  width: 200px;
+  line-height: 1rem;
+  border: 1px solid #fff;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #fff;
 }
 
 .name {
-    font-size: 1.5rem;
-    letter-spacing: -3px;
-    font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: -3px;
+  font-weight: 400;
 }
 
 .underName {
-    font-size: 0.75rem;
-    font-weight: 300;
+  font-size: 0.75rem;
+  font-weight: 300;
 }
 
 @media screen and (max-width: 560px) {
-    .header {
-        justify-content: center;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
+  .header {
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }

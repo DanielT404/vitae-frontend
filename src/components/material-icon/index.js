@@ -1,17 +1,17 @@
-import { h } from 'preact'
+import { h } from 'preact';
 
 function Icon(props) {
-    const { onClick, onMouseEnter } = props
+  const { onClick, onMouseEnter } = props;
 
-    return (
-        <span
-            class={`material-icons ${props?.class}`}
-            onClick={onClick}
-            onMouseEnter={onMouseEnter}
-        >
-            {props.type}
-        </span>
-    )
+  return (
+    <span
+      class={`material-icons ${props.class && props.class}`}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+    >
+      {props.type}
+    </span>
+  );
 }
 
-export default Icon
+export default Icon;

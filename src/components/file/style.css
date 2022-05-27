@@ -1,35 +1,35 @@
 .fileWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 55px;
-    margin-left: 8rem;
-    color: #fff;
-    overflow: hidden;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  margin-left: 8rem;
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .fileIcon {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .fileName {
-    font-size: 0.75rem;
-    width: 100%;
-    cursor: pointer;
+  font-size: 0.75rem;
+  width: 100%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 560px) {
-    .fileWrapper {
-        margin-left: 1.5rem;
-    }
+  .fileWrapper {
+    margin-left: 1.5rem;
+  }
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
-    .fileWrapper {
-        margin-left: 2rem;
-    }
+  .fileWrapper {
+    margin-left: 2rem;
+  }
 }

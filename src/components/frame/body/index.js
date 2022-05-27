@@ -1,67 +1,63 @@
-import { h } from 'preact'
-import { useSelector } from 'react-redux'
+import { h } from 'preact';
 
-import Desktop from '../../../routes/desktop'
-import AboutMe from '../../../routes/aboutMe'
-import Projects from '../../../routes/projects'
-import Resume from '../../../routes/resume'
-import Contact from '../../../routes/contact'
+import { useContext } from 'preact/hooks';
+import Theme from '../../../utils/contexts/Theme';
 
-import TreeFrame from '../tree'
-import WindowFrame from '../../file/window'
+import Desktop from '../../../routes/desktop';
+import AboutMe from '../../../routes/aboutMe';
+import Projects from '../../../routes/projects';
+import Resume from '../../../routes/resume';
+import Contact from '../../../routes/contact';
+import TreeFrame from '../tree';
 
-import style from './style.css'
-import { useContext } from 'preact/hooks'
-import Theme from '../../../utils/contexts/Theme'
+import style from './style.css';
 
-function BodyFrame(props) {
-    const isViewFileMode = useSelector((state) => state.file.viewFileMode)
-    const { theme } = useContext(Theme)
-    return (
-        <div class={style.bodyFrame}>
-            <TreeFrame currentNav={props.page} />
-            {props.page == 'desktop' && <Desktop />}
-            {props.page !== 'desktop' && isViewFileMode && <WindowFrame />}
-            {props.page == 'aboutMe' && (
-                <div
-                    class={`${style.innerBody} ${
-                        theme == 'light'
-                            ? style.innerBodyLightColor
-                            : style.innerBodyDarkColor
-                    }`}
-                >
-                    {props.page == 'aboutMe' && <AboutMe />}
-                </div>
-            )}
-            {props.page == 'projects' && (
-                <div
-                    class={`${style.innerBody} ${style.smallerMargin} ${
-                        theme == 'light'
-                            ? style.innerBodyLightColor
-                            : style.innerBodyDarkColor
-                    }`}
-                >
-                    <Projects />
-                </div>
-            )}
-            {props.page == 'resume' && (
-                <div class={style.resumeBg}>
-                    <Resume />
-                </div>
-            )}
-            {props.page == 'contact' && (
-                <div
-                    class={`${style.innerBody} ${style.smallerMargin} ${
-                        theme == 'light'
-                            ? style.innerBodyLightColor
-                            : style.innerBodyDarkColor
-                    }`}
-                >
-                    <Contact />
-                </div>
-            )}
+function BodyFrame({ page }) {
+  const { theme } = useContext(Theme);
+  return (
+    <div class={style.bodyFrame}>
+      <TreeFrame currentNav={page} />
+      {page == 'desktop' && <Desktop />}
+      {page == 'aboutMe' && (
+        <div
+          class={`${style.innerBody} ${
+            theme == 'light'
+              ? style.innerBodyLightColor
+              : style.innerBodyDarkColor
+          }`}
+        >
+          {page == 'aboutMe' && <AboutMe />}
         </div>
-    )
+      )}
+      {page == 'projects' && (
+        <div
+          class={`${style.innerBody} ${style.smallerMargin} ${
+            theme == 'light'
+              ? style.innerBodyLightColor
+              : style.innerBodyDarkColor
+          }`}
+        >
+          <Projects />
+        </div>
+      )}
+      {page == 'resume' && (
+        <div class={style.resumeBg}>
+          <Resume />
+        </div>
+      )}
+      {page == 'contact' && (
+        <div
+          class={`${style.innerBody} ${style.smallerMargin} ${
+            theme == 'light'
+              ? style.innerBodyLightColor
+              : style.innerBodyDarkColor
+          }`}
+        >
+          <Contact />
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default BodyFrame
+export default BodyFrame;

@@ -1,7 +1,7 @@
-import { createContext } from 'preact'
+import { createContext } from 'preact';
 
 const Theme = createContext({
-    theme: 'dark',
-    setTheme: (theme) => {},
-})
-export default Theme
+  theme: 'dark',
+  setTheme: () => {}
+});
+export default Theme;

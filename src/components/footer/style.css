@@ -1,83 +1,31 @@
 .footer {
-    margin-left: 2rem;
-    background: #171717;
-    color: #fff;
-    column-gap: 25px;
-    display: flex;
-    padding-left: 2rem;
-    bottom: 0;
-    width: calc(100% - 4rem);
+  margin-left: 2rem;
+  background: #171717;
+  color: #fff;
+  column-gap: 25px;
+  display: flex;
+  padding-left: 2rem;
+  bottom: 0;
+  width: calc(100% - 4rem);
 }
 
 .isActive {
-    border-bottom: 3px solid #FF7272;
-    background: hsla(0, 0%, 70%, 0.5);
-}
-
-.notActive {
-    border-bottom: 3px solid #FF7272;
-}
-
-.minimizedFileWrapper {
-    display: flex;
-    position: relative;
-    column-gap: 25px;
-    flex-wrap: wrap;
-}
-
-.minimizedOverview {
-    background: #000;
-    height: 270px;
-    width: 170px;
-    left: -40px;
-    opacity: 1;
-    position: absolute;
-    transition: all 4s ease-out;
-    transform: translate(0, -100%);
-    overflow: hidden;
-}
-
-.minimizedNav {
-    padding: 3px;
-    background: white;
-    right: 10px;
-    color: #000;
-    overflow: hidden;
-    font-size: 8px;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.minimizedNav h6 {
-    display: block;
-    padding-left: 1rem;
-    cursor: default;
-}
-
-.wrappedFile {
-    display: flex;
-    position: relative;
-    cursor: default;
+  border-bottom: 3px solid #ff7272;
+  background: hsla(0, 0%, 70%, 0.5);
 }
 
 .icon {
-    display: flex;
-    cursor: pointer;
-    padding: 0.5rem;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  cursor: pointer;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid #ff7272;
 }
-
-.exitIcon {
-    color: #ff7272;
-}
-
 
 @media screen and (max-width: 560px) {
-    .footer {
-        width: 100%;
-        margin-left: 0;
-    }
+  .footer {
+    width: 100%;
+    margin-left: 0;
+  }
 }

@@ -1,9 +1,9 @@
-import { h } from 'preact'
+import { h } from 'preact';
 
-import Frame from '../../components/frame'
+import Frame from '../../components/frame';
 
 function View(props) {
-    return <Frame props={props} />
+  return <Frame props={props} />;
 }
 
-export default View
+export default View;

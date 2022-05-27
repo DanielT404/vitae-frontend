@@ -1,14 +1,14 @@
 .downloadBtn {
-    cursor: pointer;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #48aa48;
-    color: #fff;
+  cursor: pointer;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #48aa48;
+  color: #fff;
 }
 
 .icon {
-    display: flex;
-    color: #fff;
+  display: flex;
+  color: #fff;
 }

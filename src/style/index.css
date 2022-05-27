@@ -1,49 +1,53 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-html, body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Noto Sans', sans-serif;
-	min-height: 100vh;
-	height: 100%;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #app {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	flex: 1 0 auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  flex: 1 0 auto;
 }
 
 @media screen and (max-width: 560px) {
-	body, html {
-		height: 100%;
-	}
-	#app {
-		margin: initial;
-		flex: 1 0 auto;
-		overflow: none;
-		height: 100%;
-	}
+  body,
+  html {
+    height: 100%;
+  }
+  #app {
+    margin: initial;
+    flex: 1 0 auto;
+    overflow: none;
+    height: 100%;
+  }
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
-	body, html {
-		height: auto;
-	}
-	#app {
-		overflow: none;
-	}
+  body,
+  html {
+    height: auto;
+  }
+  #app {
+    overflow: none;
+  }
 }
 
 @media (min-width: 1280px) {
-	#app {
-		overflow: hidden;
-	}
+  #app {
+    overflow: auto;
+  }
 }

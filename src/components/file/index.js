@@ -3,7 +3,12 @@ import Icon from '../material-icon/index'
 import style from './style.css'
 
 import { useDispatch } from 'react-redux'
-import { openFileModeView, updateFileInfo } from '../../features/file/fileSlice'
+import {
+    clearActiveFiles,
+    addMinimizedFile,
+    openFileModeView,
+    updateFileInfo,
+} from '../../features/file/fileSlice'
 
 function File(props) {
     const dispatch = useDispatch()
@@ -14,8 +19,10 @@ function File(props) {
             <div
                 class={style.fileIcon}
                 onDblClick={() => {
+                    dispatch(clearActiveFiles())
+                    dispatch(addMinimizedFile({ ...data, status: 'active' }))
+                    dispatch(updateFileInfo({ ...data }))
                     dispatch(openFileModeView())
-                    dispatch(updateFileInfo({ ...data, isMinimized: false }))
                 }}
             >
                 <Icon type={data.MaterialIcon} />
@@ -23,8 +30,10 @@ function File(props) {
             <div
                 class={style.fileName}
                 onDblClick={() => {
+                    dispatch(clearActiveFiles())
+                    dispatch(addMinimizedFile({ ...data, status: 'active' }))
+                    dispatch(updateFileInfo({ ...data }))
                     dispatch(openFileModeView())
-                    dispatch(updateFileInfo({ ...data, isMinimized: false }))
                 }}
             >
                 {data.KeyShrinked}.{data.Extension}

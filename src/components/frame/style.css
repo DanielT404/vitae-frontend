@@ -1,7 +1,7 @@
 .container {
-    font-family: "Fira Mono", sans-serif;
+    font-family: 'Fira Mono', sans-serif;
     margin-left: 2rem;
-    height: 700px;
+    height: 80%;
     width: calc(100% - 4rem);
 }
 .lightBg {
