@@ -7,7 +7,7 @@ WORKDIR /app
 RUN apk update && apk add nano
 COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm install
+RUN npm install --production
 COPY . .
 RUN npm install preact-cli@^3.0.0 -g
 RUN npm install sirv-cli@1.0.3 -g
