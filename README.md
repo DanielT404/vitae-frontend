@@ -33,7 +33,7 @@ export default (config, env, helpers, options) => {
 #### Known issues for Windows users
 
 Hot Reloading feature may not work as intended while doing file changes locally due to some filesystem events incompatibilities between Windows and node libs mechanisms.
-In order for the Docker container to sync with the local changes and reload, you must append to the command above the usage of polling. e.g. `docker run [...] -e CHOKIDAR_USEPOLLING=true`.
+In order for the Docker container to sync with the local changes and reload, you must append to the command above the usage of polling. e.g. `docker run [...] -e CHOKIDAR_USEPOLLING=true`.<br/>
 **WARNING! Setting `CHOKIDAR_USEPOLLING=true` is known to cause high CPU load to some users. If that's your case, you're better off spinning the application locally using CLI commands instead.**
 
 #### Spin up application by using CLI commands
