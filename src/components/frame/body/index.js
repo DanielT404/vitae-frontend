@@ -1,13 +1,13 @@
 import { h } from 'preact';
-
 import { useContext } from 'preact/hooks';
-import Theme from '../../../utils/contexts/Theme';
 
-import Desktop from '../../../routes/desktop';
-import AboutMe from '../../../routes/aboutMe';
-import Projects from '../../../routes/projects';
-import Resume from '../../../routes/resume';
-import Contact from '../../../routes/contact';
+import Theme from 'utils/contexts/Theme';
+
+import Desktop from 'routes/desktop';
+import AboutMe from 'routes/aboutMe';
+import Projects from 'routes/projects';
+import Resume from 'routes/resume';
+import Contact from 'routes/contact';
 import TreeFrame from '../tree';
 
 import style from './style.css';
@@ -26,7 +26,7 @@ function BodyFrame({ page }) {
               : style.innerBodyDarkColor
           }`}
         >
-          {page == 'aboutMe' && <AboutMe />}
+          <AboutMe />
         </div>
       )}
       {page == 'projects' && (

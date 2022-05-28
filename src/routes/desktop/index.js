@@ -2,11 +2,11 @@ import { h, Fragment } from 'preact';
 import { useCallback, useEffect } from 'preact/hooks';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setFiles } from '../../features/file/fileSlice';
-import fetchFiles from '../../utils/functions/fetchFiles';
+import { setFiles } from 'features/file/fileSlice';
+import fetchFiles from 'utils/functions/fetchFiles';
 
-import WindowFrame from '../../components/file/window';
-import File from '../../components/file';
+import File from 'components/file';
+import WindowFrame from 'components/file/window';
 
 import style from './style.css';
 

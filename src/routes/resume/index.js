@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact';
 
-import Icon from '../../components/material-icon';
+import Icon from 'components/material-icon';
 import style from './style.css';
 
 const Resume = () => {

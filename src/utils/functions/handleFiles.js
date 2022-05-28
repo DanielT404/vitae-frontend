@@ -1,4 +1,4 @@
-import { toggleFrameView } from '../../features/frame/frameSlice';
+import { toggleFrameView } from 'features/frame/frameSlice';
 import {
   openFileModeView,
   closeFileModeView,
@@ -7,7 +7,7 @@ import {
   updateFileInfo,
   clearFileInfo,
   closeMinimizedFile
-} from '../../features/file/fileSlice';
+} from 'features/file/fileSlice';
 
 const handleFileOpen = (file, dispatch, isViewFrameModeActive) => {
   if (!isViewFrameModeActive) dispatch(toggleFrameView());

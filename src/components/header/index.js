@@ -2,9 +2,9 @@ import { h } from 'preact';
 import { Link } from 'preact-router';
 import { useContext } from 'preact/hooks';
 
-import Theme from '../../utils/contexts/Theme';
+import Theme from 'utils/contexts/Theme';
 
-import Icon from '../material-icon';
+import Icon from 'components/material-icon';
 import style from './style.css';
 
 function Header() {

@@ -1,17 +1,19 @@
 import { h, Fragment } from 'preact';
-import { useContext, useRef } from 'preact/hooks';
+import { useRef } from 'preact/compat';
+import { useContext } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Theme from '../../utils/contexts/Theme';
+import Theme from 'utils/contexts/Theme';
 
-import Captcha from '../../components/captcha';
-import { updateCaptchaSubmit } from '../../features/captcha/captchaSlice';
+import Captcha from 'components/captcha';
+import { updateCaptchaSubmit } from 'features/captcha/captchaSlice';
+
 import {
   setName,
   setEmail,
   setMessage,
   setResponse
-} from '../../features/contact-form/contactFormSlice';
+} from 'features/contact-form/contactFormSlice';
 import sendEmail from './utils/sendEmail';
 
 import style from './style.css';
@@ -119,8 +121,8 @@ const Contact = () => {
               }
             />
           </div>
-          <div id="google-captcha" ref={mountCaptchaRef}>
-            <Captcha ref={mountCaptchaRef} />
+          <div id="google-captcha">
+            <Captcha />
           </div>
           <button type="submit" class={style.sendBtn}>
             Send

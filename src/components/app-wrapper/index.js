@@ -3,12 +3,12 @@ import { Router } from 'preact-router';
 import { useContext } from 'preact/hooks';
 import { useSelector } from 'react-redux';
 
-import View from '../../routes/view';
-import Theme from '../../utils/contexts/Theme';
+import View from 'routes/view';
+import Theme from 'utils/contexts/Theme';
 
-import Header from '../header';
-import YoutubeEmbed from '../youtube-embed';
-import Footer from '../footer';
+import Header from 'components/header';
+import YoutubeEmbed from 'components/youtube-embed';
+import Footer from 'components/footer';
 
 import style from './style';
 

@@ -1,9 +1,10 @@
-import { Provider } from 'react-redux';
-import AppWrapper from './app-wrapper';
-
-import Theme from '../utils/contexts/Theme';
-import store from './store';
 import { useState } from 'preact/hooks';
+
+import { Provider } from 'react-redux';
+import store from 'components/store';
+
+import Theme from 'utils/contexts/Theme';
+import AppWrapper from 'components/app-wrapper';
 
 function App() {
   const [theme, setTheme] = useState('dark');

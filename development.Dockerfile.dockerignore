@@ -1,0 +1,17 @@
+/node_modules
+/package-backup
+/build
+/.devcontainer
+/.git
+.DS_Store
+.prettierrc
+.gitignore
+development.Dockerfile
+production.Dockerfile
+size-plugin.json
+ngrok.exe
+README.md
+README_after_build_stage.md
+production.Dockerfile
+production.Dockerfile.dockerignore
+

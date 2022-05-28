@@ -1,12 +1,13 @@
-import { Fragment, h } from 'preact';
+import { h, Fragment } from 'preact';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'preact-router';
 
-import { toggleFrameView } from '../../features/frame/frameSlice';
+import { toggleFrameView } from 'features/frame/frameSlice';
 
-import Icon from '../material-icon';
+import Icon from 'components/material-icon';
+import MinimizedFiles from 'components/file/minimized';
+
 import style from './style.css';
-import MinimizedFiles from '../file/minimized';
 
 function Footer() {
   const dispatch = useDispatch();

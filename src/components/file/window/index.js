@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   handleFileClose,
   handleFileMinimize
-} from '../../../utils/functions/handleFiles';
+} from 'utils/functions/handleFiles';
 
 import Icon from '../../material-icon/index';
 import style from './style.css';

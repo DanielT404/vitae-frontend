@@ -1,4 +1,4 @@
-import getPathAPI from '../../../utils/getPathAPI';
+import getPathAPI from 'utils/getPathAPI';
 
 async function sendEmail({ name, email, message, token }) {
   try {
@@ -11,7 +11,7 @@ async function sendEmail({ name, email, message, token }) {
         name,
         email,
         message,
-        secret: '6LeSFhcgAAAAAFQ7fsQVS0sxtM8OTLzlYUE7ljxo',
+        secret: process.env.GOOGLE_RECAPTCHA_SECRET_KEY,
         token
       })
     });

@@ -2,13 +2,10 @@ import { h, Fragment } from 'preact';
 import { Link } from 'preact-router';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleOnMinimizedHover } from '../../../features/file/fileSlice';
-import {
-  handleFileOpen,
-  handleFileClose
-} from '../../../utils/functions/handleFiles';
+import { toggleOnMinimizedHover } from 'features/file/fileSlice';
+import { handleFileOpen, handleFileClose } from 'utils/functions/handleFiles';
 
-import useWindowDimensions from '../../../utils/hooks/useWindowDimensions';
+import useWindowDimensions from 'utils/hooks/useWindowDimensions';
 
 import Icon from '../../material-icon';
 import style from './style.css';

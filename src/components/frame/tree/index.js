@@ -3,13 +3,12 @@ import { h } from 'preact';
 import { Link } from 'preact-router';
 import { useContext } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideNavTree, showNavTree } from '../../../features/frame/frameSlice';
+import { hideNavTree, showNavTree } from 'features/frame/frameSlice';
 
-import useWindowDimensions from '../../../utils/hooks/useWindowDimensions';
+import Theme from 'utils/contexts/Theme';
+import useWindowDimensions from 'utils/hooks/useWindowDimensions';
 
-import Theme from '../../../utils/contexts/Theme';
-import Icon from '../../material-icon';
-
+import Icon from 'components/material-icon';
 import style from './style.css';
 
 function TreeFrame(props) {
