@@ -1,3 +1,5 @@
+import { h } from 'preact';
+
 import { configureStore } from '@reduxjs/toolkit';
 import frameReducer from 'features/frame/frameSlice';
 import fileReducer from 'features/file/fileSlice';

@@ -14,12 +14,14 @@ Snippet:
 
 ```javascript
 window.onload = () => {
-    document
-        .getElementsByTagName('head')[0]
-        .insertAdjacentHTML(
-            'beforeend',
-            '<link rel="stylesheet" href="/bundle.BUNDLE_HASH_VALUE.css" media="all" />'
-        )
-    this.media = 'all'
-}
+  document
+    .getElementsByTagName('head')[0]
+    .insertAdjacentHTML(
+      'beforeend',
+      '<link rel="stylesheet" href="/bundle.BUNDLE_HASH_VALUE.css" media="all" />'
+    );
+  this.media = 'all';
+};
 ```
+
+##### The above steps would happen in `./startContainer.sh` depending on ENABLE_CSP value.

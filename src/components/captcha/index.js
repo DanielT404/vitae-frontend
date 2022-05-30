@@ -1,6 +1,5 @@
 import { h } from 'preact';
-import ReactDOM from 'preact/compat';
-import { useRef, useContext } from 'preact/hooks';
+import { useRef } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -8,8 +7,6 @@ import {
   updateToken,
   updateCaptchaSubmit
 } from 'features/captcha/captchaSlice';
-
-import Theme from 'utils/contexts/Theme';
 
 const Captcha = () => {
   const dispatch = useDispatch();

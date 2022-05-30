@@ -99,7 +99,7 @@ function TreeFrame(props) {
                       : ''
                   }`}
                 >
-                  <Icon type="info" class={style.subIcon} />{' '}
+                  <Icon type="info" class={style.subIcon} />
                   <span class={style.navText}>About me</span>
                 </Link>
               </li>
@@ -118,7 +118,7 @@ function TreeFrame(props) {
                       : ''
                   }`}
                 >
-                  <Icon type="view_list" class={style.subIcon} />{' '}
+                  <Icon type="view_list" class={style.subIcon} />
                   <span class={style.navText}>Projects</span>
                 </Link>
               </li>
@@ -137,7 +137,7 @@ function TreeFrame(props) {
                       : ''
                   }`}
                 >
-                  <Icon type="attach_file" class={style.subIcon} />{' '}
+                  <Icon type="attach_file" class={style.subIcon} />
                   <span class={style.navText}>Resume</span>
                 </Link>
               </li>
@@ -156,7 +156,7 @@ function TreeFrame(props) {
                       : ''
                   }`}
                 >
-                  <Icon type="contact_mail" class={style.subIcon} />{' '}
+                  <Icon type="contact_mail" class={style.subIcon} />
                   <span class={style.navText}>Contact</span>
                 </Link>
               </li>

@@ -1,27 +1,27 @@
 .container {
-    font-family: 'Fira Mono', sans-serif;
-    margin-left: 2rem;
-    height: 80%;
-    width: calc(100% - 4rem);
+  font-family: 'Fira Mono', sans-serif;
+  margin-left: 2rem;
+  height: 80%;
+  width: calc(100% - 4rem);
 }
 .lightBg {
-    background: #fcfcfc;
+  background: #fcfcfc;
 }
 
 .darkBg {
-    background: #383838;
+  background: #383838;
 }
 
 @media screen and (max-width: 560px) {
-    .container {
-        width: 100%;
-        height: auto;
-        margin: 0;
-    }
+  .container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
-    .container {
-        height: auto;
-    }
+  .container {
+    height: auto;
+  }
 }

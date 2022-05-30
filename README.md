@@ -3,20 +3,7 @@
 ## Pre-configuration
 
 Add `preact.config.js` in the root directory in order to expand the default webpack functionality, by using the following template:
-
-```javascript
-export default (config, env, helpers, options) => {
-  // allows to set environment variables within the application and reference them later with process.env.ENVIRONMENT_NAME
-  const { plugin } = helpers.getPluginsByName(config, 'DefinePlugin')[0];
-  plugin.definitions['process.env.GOOGLE_RECAPTCHA_SITE_KEY'] = JSON.stringify(
-    '{YOUR_OWN_SITE_KEY}'
-  );
-  plugin.definitions['process.env.GOOGLE_RECAPTCHA_SECRET_KEY'] =
-    JSON.stringify('{YOUR_OWN_SECRET_KEY}');
-  // resolves imports to be relative to src folder, allowing to use more absolute-style paths while importing (no more "[...] from '../../../../module")
-  config.resolve.modules.push(env.src);
-};
-```
+[preact.config.js.example](https://github.com/DanielT404/vitae-frontend/blob/main/preact.config.js.example)
 
 ## Environments
 
