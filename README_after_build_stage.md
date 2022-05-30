@@ -24,4 +24,4 @@ window.onload = () => {
 };
 ```
 
-##### The above steps would happen in `./startContainer.sh` depending on ENABLE_CSP value.
+##### The above steps would happen in [./startContainer.sh](https://github.com/DanielT404/vitae-frontend/blob/main/startContainer.sh) depending on `ENABLE_CSP` value.

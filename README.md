@@ -3,7 +3,7 @@
 ## Pre-configuration
 
 Add `preact.config.js` in the root directory in order to expand the default webpack functionality, by using the following template:
-[preact.config.js.example](https://github.com/DanielT404/vitae-frontend/blob/main/preact.config.js.example)
+[preact.config.example.js](https://github.com/DanielT404/vitae-frontend/blob/main/preact.config.js.example)
 
 ## Environments
 
