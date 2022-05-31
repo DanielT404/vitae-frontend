@@ -37,12 +37,9 @@
     width: 100%;
   }
 
-  .smallerMargin {
-    padding: 2rem 3rem;
-  }
-
   .innerBody {
     margin: 0;
+    padding: 1.5rem 2rem;
   }
 }
 

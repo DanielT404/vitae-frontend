@@ -11,5 +11,5 @@ RUN npm run test || exit 1
 COPY startContainer.sh /startContainer.sh
 COPY cspCompliance.sh /cspCompliance.sh
 
-ENTRYPOINT /startContainer.sh
+ENTRYPOINT ["sh", "/startContainer.sh"]
 

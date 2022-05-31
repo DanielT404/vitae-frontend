@@ -20,22 +20,20 @@ function BodyFrame({ page }) {
       {page == 'desktop' && <Desktop />}
       {page == 'aboutMe' && (
         <div
-          class={`${style.innerBody} ${
-            theme == 'light'
+          class={`${style.innerBody} ${theme == 'light'
               ? style.innerBodyLightColor
               : style.innerBodyDarkColor
-          }`}
+            }`}
         >
           <AboutMe />
         </div>
       )}
       {page == 'projects' && (
         <div
-          class={`${style.innerBody} ${style.smallerMargin} ${
-            theme == 'light'
+          class={`${style.innerBody} ${theme == 'light'
               ? style.innerBodyLightColor
               : style.innerBodyDarkColor
-          }`}
+            }`}
         >
           <Projects />
         </div>
@@ -47,11 +45,10 @@ function BodyFrame({ page }) {
       )}
       {page == 'contact' && (
         <div
-          class={`${style.innerBody} ${style.smallerMargin} ${
-            theme == 'light'
+          class={`${style.innerBody} ${theme == 'light'
               ? style.innerBodyLightColor
               : style.innerBodyDarkColor
-          }`}
+            }`}
         >
           <Contact />
         </div>
