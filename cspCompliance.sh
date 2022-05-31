@@ -3,15 +3,20 @@ BUNDLED_CSS_FILENAME=$(find ./build -type f -name bundle.\*.css -exec basename {
 
 touch ./build/csp-compliance.js
 echo "
-window.onload = () => {
+function insertCss() {
   document
     .getElementsByTagName('head')[0]
     .insertAdjacentHTML(
       'beforeend',
       '<link rel="stylesheet" href="$BUNDLED_CSS_FILENAME" media="all" />'
     );
-  this.media = 'all';
-};
+}
+if(document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', insertCss);
+}
+else if(document.readyState === 'interactive' || document.readyState === 'complete') {
+  insertCss();
+}
 " >> ./build/csp-compliance.js
 
 REPLACE_INLINE_STYLE="<style>.*</style>"
