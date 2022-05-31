@@ -30,7 +30,7 @@ function Header() {
           <Icon
             type="light_mode"
             class={style.icon}
-            onClick={() => toggleThemeMode()}
+            onClick={toggleThemeMode}
           />
           <h6>toggle light mode</h6>
         </div>
@@ -40,7 +40,7 @@ function Header() {
           <Icon
             type="dark_mode"
             class={`${style.icon} ${style.darkSwitchIcon}`}
-            onClick={() => toggleThemeMode()}
+            onClick={toggleThemeMode}
           />
           <h6>toggle dark mode</h6>
         </div>

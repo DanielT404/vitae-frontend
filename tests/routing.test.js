@@ -1,57 +1,55 @@
-import { h } from 'preact'
+import { h } from 'preact';
+import { Router } from 'preact-router';
 
-import Router from 'preact-router'
-import { route } from 'preact-router'
-import AppWrapper from '../src/components/app-wrapper'
-import View from '../src/routes/view'
+import { mockStore } from './utils/mockStore';
+import { getCurrentSnapshot } from './utils/getCurrentSnapshot.js';
 
-import { mockStore } from './utils/mockStore'
-import { getCurrentSnapshot } from './utils/getCurrentSnapshot.js'
+import View from '../src/routes/view';
+import Desktop from '../src/routes/desktop';
+import AboutMe from '../src/routes/aboutMe';
+import Projects from '../src/routes/projects';
+import Resume from '../src/routes/resume';
+import Contact from '../src/routes/contact';
 
 describe('Routing tests', () => {
-    test('Router component is mounted', () => {
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.exists(Router)).toBe(true)
-    })
+  test('<Router> is mounted', () => {
+    const app = getCurrentSnapshot(<Router />, mockStore);
+    expect(app.exists(Router)).toBe(true);
+  });
 
-    test('Default page is about me', () => {
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.find(View).prop('path')).toBe('/')
-        expect(app.find(View).prop('page')).toBe('aboutMe')
-    })
+  test('<AboutMe /> is mounted on View.props.page = null and View.props.path="/"', () => {
+    const app = getCurrentSnapshot(<View path='/' />, mockStore);
+    expect(app.find(View).prop('path')).toBe('/');
+    expect(app.exists(AboutMe)).toBe(true);
+  });
 
-    it('Should go to desktop page on route change', () => {
-        route('/desktop')
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.find(View).prop('path')).toBe('/desktop')
-        expect(app.find(View).prop('page')).toBe('desktop')
-    })
+  test('<Desktop /> is mounted on view path="/desktop"', () => {
+    const app = getCurrentSnapshot(<View path='/desktop' page="desktop" />, mockStore);
+    expect(app.find(View).prop('path')).toBe('/desktop');
+    expect(app.exists(Desktop)).toBe(true);
+  });
 
-    it('Should go to about me page on route change', () => {
-        route('/about-me')
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.find(View).prop('path')).toBe('/about-me')
-        expect(app.find(View).prop('page')).toBe('aboutMe')
-    })
+  test('<AboutMe /> is mounted on view path="/about-me"', () => {
+    const app = getCurrentSnapshot(<View path='/about-me' page="aboutMe" />, mockStore);
+    expect(app.find(View).prop('path')).toBe('/about-me');
+    expect(app.exists(AboutMe)).toBe(true);
+  });
 
-    it('Should go to projects page on route change', () => {
-        route('/projects')
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.find(View).prop('path')).toBe('/projects')
-        expect(app.find(View).prop('page')).toBe('projects')
-    })
+  test('<Projects /> is mounted on view path="/projects"', () => {
+    const app = getCurrentSnapshot(<View path='/projects' page="projects" />, mockStore);
+    expect(app.find(View).prop('path')).toBe('/projects');
+    expect(app.exists(Projects)).toBe(true);
+  });
 
-    it('Should go to resume page on route change', () => {
-        route('/resume')
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.find(View).prop('path')).toBe('/resume')
-        expect(app.find(View).prop('page')).toBe('resume')
-    })
+  test('<Resume /> is mounted on view path="/resume"', () => {
+    const app = getCurrentSnapshot(<View path='/resume' page="resume" />, mockStore);
+    expect(app.find(View).prop('path')).toBe('/resume');
+    expect(app.exists(Resume)).toBe(true);
+  });
 
-    it('Should go to contact page on route change', () => {
-        route('/contact')
-        const app = getCurrentSnapshot(<AppWrapper />, mockStore)
-        expect(app.find(View).prop('path')).toBe('/contact')
-        expect(app.find(View).prop('page')).toBe('contact')
-    })
-})
+  test('<Contact /> is mounted on view path="/contact"', () => {
+    const app = getCurrentSnapshot(<View path='/contact' page="contact" />, mockStore);
+    expect(app.find(View).prop('path')).toBe('/contact');
+    expect(app.exists(Contact)).toBe(true);
+  });
+});

@@ -1,5 +1,4 @@
 import { h, Fragment } from 'preact';
-import { useRef } from 'preact/compat';
 import { useContext } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,6 +6,8 @@ import Theme from 'utils/contexts/Theme';
 
 import Captcha from 'components/captcha';
 import { updateCaptchaSubmit } from 'features/captcha/captchaSlice';
+
+import Highlight from '../../components/highlight';
 
 import {
   setName,
@@ -16,11 +17,11 @@ import {
 } from 'features/contact-form/contactFormSlice';
 import sendEmail from './utils/sendEmail';
 
+
 import style from './style.css';
 
 const Contact = () => {
   const { theme } = useContext(Theme);
-  const mountCaptchaRef = useRef({});
 
   const dispatch = useDispatch();
   const name = useSelector((state) => state.contactForm.name);
@@ -58,9 +59,8 @@ const Contact = () => {
     <Fragment>
       {response.message && (
         <div
-          class={`${style.notification} ${
-            response.success ? style.successBg : style.errorBg
-          }`}
+          class={`${style.notification} ${response.success ? style.successBg : style.errorBg
+            }`}
         >
           <p>{response.message}</p>
           {response?.messageId && (
@@ -72,20 +72,19 @@ const Contact = () => {
         </div>
       )}
       <div class={style.text}>
-        Reach me via
+        <Highlight source="Reach me via" />
         <span class={style.linkedIn}>
           <a href="https://linkedin.com/test">
             <img
-              src={`${
-                theme == 'dark'
-                  ? '/assets/linkedin-light.png'
-                  : '/assets/linkedin-dark.png'
-              }`}
+              src={`${theme == 'dark'
+                ? '/assets/linkedin-light.png'
+                : '/assets/linkedin-dark.png'
+                }`}
             />
           </a>
         </span>
-        or by using the form below. I usually reply within 24 hours. Let's do
-        eeeeet!
+        <Highlight source="or by using the form below. I usually reply within 24 hours. Let's do
+        eeeeet!"/>
       </div>
       <div class={style.formWrapper}>
         <form class={style.form} onSubmit={handleSubmit}>

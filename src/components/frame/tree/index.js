@@ -15,14 +15,12 @@ function TreeFrame(props) {
   const dispatch = useDispatch();
   const { theme } = useContext(Theme);
   let isNavTreeShown = useSelector((state) => state.frame.isNavTreeShown);
-  if (typeof window !== 'undefined') {
-    const { width } = useWindowDimensions();
-    if (width <= 1280 && !isNavTreeShown) {
-      dispatch(hideNavTree());
-    }
-    if (width > 1280) {
-      dispatch(showNavTree());
-    }
+  const { width } = useWindowDimensions() || 0;
+  if (width <= 1280 && !isNavTreeShown) {
+    dispatch(hideNavTree());
+  }
+  if (width > 1280) {
+    dispatch(showNavTree());
   }
   return (
     isNavTreeShown && (

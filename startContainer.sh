@@ -1,6 +1,7 @@
 #!/bin/bash
 ENABLE_CSP=true
 
+#build app
 npm run build
 
 if $ENABLE_CSP

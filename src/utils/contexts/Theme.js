@@ -1,4 +1,4 @@
-import { h, createContext } from 'preact';
+import { createContext } from 'preact';
 
 const Theme = createContext({
   theme: 'dark',

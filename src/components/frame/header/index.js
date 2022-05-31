@@ -4,6 +4,7 @@ import { route } from 'preact-router';
 import { useContext, useState } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { setComponentState, setSearchText } from 'features/highlight/highlightSlice';
 import { toggleFrameView, toggleNavTree } from 'features/frame/frameSlice';
 import { updateToken } from 'features/captcha/captchaSlice';
 import handleNavigation from 'utils/functions/handleNavigation';
@@ -37,22 +38,19 @@ function HeaderFrame(props) {
       )}
       {!isExpandSectionActive && (
         <div
-          class={`${style.header} ${
-            theme == 'light' ? style.lightHeaderBg : style.darkHeaderBg
-          } ${theme == 'light' ? style.borderBottomLight : ''}`}
+          class={`${style.header} ${theme == 'light' ? style.lightHeaderBg : style.darkHeaderBg
+            } ${theme == 'light' ? style.borderBottomLight : ''}`}
         >
           <div class={style.navigation}>
             {path == '/desktop' && (
               <Fragment>
                 <Icon
                   type="arrow_back"
-                  class={`${style.navIcon} ${
-                    theme === 'light' ? style.navIconLight : style.navIconDark
-                  } ${
-                    theme === 'light'
+                  class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                    } ${theme === 'light'
                       ? style.notAvailableIconLight
                       : style.notAvailableIconDark
-                  }`}
+                    }`}
                   onClick={(e) => {
                     e.preventDefault();
                     navHandler('back');
@@ -60,9 +58,8 @@ function HeaderFrame(props) {
                 />
                 <Icon
                   type="arrow_forward"
-                  class={`${style.navIcon} ${
-                    theme === 'light' ? style.navIconLight : style.navIconDark
-                  }
+                  class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                    }
                                     `}
                   onClick={(e) => {
                     e.preventDefault();
@@ -75,9 +72,8 @@ function HeaderFrame(props) {
               <Fragment>
                 <Icon
                   type="arrow_back"
-                  class={`${style.navIcon} ${
-                    theme === 'light' ? style.navIconLight : style.navIconDark
-                  }
+                  class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                    }
                                     `}
                   onClick={(e) => {
                     e.preventDefault();
@@ -86,13 +82,11 @@ function HeaderFrame(props) {
                 />
                 <Icon
                   type="arrow_forward"
-                  class={`${style.navIcon} ${
-                    theme === 'light' ? style.navIconLight : style.navIconDark
-                  } ${
-                    theme === 'light'
+                  class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                    } ${theme === 'light'
                       ? style.notAvailableIconLight
                       : style.notAvailableIconDark
-                  }`}
+                    }`}
                   onClick={(e) => {
                     e.preventDefault();
                     navHandler('next');
@@ -104,9 +98,8 @@ function HeaderFrame(props) {
               <Fragment>
                 <Icon
                   type="arrow_back"
-                  class={`${style.navIcon} ${
-                    theme === 'light' ? style.navIconLight : style.navIconDark
-                  }
+                  class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                    }
                                     `}
                   onClick={(e) => {
                     e.preventDefault();
@@ -115,9 +108,8 @@ function HeaderFrame(props) {
                 />
                 <Icon
                   type="arrow_forward"
-                  class={`${style.navIcon} ${
-                    theme === 'light' ? style.navIconLight : style.navIconDark
-                  }
+                  class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                    }
                                     `}
                   onClick={(e) => {
                     e.preventDefault();
@@ -128,16 +120,14 @@ function HeaderFrame(props) {
             )}
             <Icon
               type="autorenew"
-              class={`${style.navIcon} ${
-                theme === 'light' ? style.navIconLight : style.navIconDark
-              }
+              class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                }
                             `}
             />
             <Icon
               type="arrow_upward"
-              class={`${style.navIcon} ${
-                theme === 'light' ? style.navIconLight : style.navIconDark
-              }
+              class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                }
                                     `}
               onClick={() => setIsExpandSectionActive(true)}
             />
@@ -145,9 +135,8 @@ function HeaderFrame(props) {
           <div class={style.pathBox}>
             <Icon
               type="https"
-              class={`${style.navIcon} ${
-                theme === 'light' ? style.navIconLight : style.navIconDark
-              } ${style.httpButton}
+              class={`${style.navIcon} ${theme === 'light' ? style.navIconLight : style.navIconDark
+                } ${style.httpButton}
                                     `}
             />
             {path === '/' && (
@@ -165,11 +154,15 @@ function HeaderFrame(props) {
             <input
               type="text"
               placeholder="Highlight keywords..."
-              class={`${style.keywordInput} ${
-                theme == 'light'
-                  ? style.keywordInputLightColor
-                  : style.keywordInputDarkColor
-              }`}
+              class={`${style.keywordInput} ${theme == 'light'
+                ? style.keywordInputLightColor
+                : style.keywordInputDarkColor
+                }`}
+              onChange={(e) => {
+                dispatch(setSearchText({ searchText: e.target.value }))
+                if (e.target.value == '') dispatch(setComponentState({ state: false }))
+                if (e.target.value !== '') dispatch(setComponentState({ state: true }))
+              }}
             />
           </div>
           <div

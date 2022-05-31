@@ -8,6 +8,7 @@ import {
 } from 'features/file/fileSlice';
 
 import Icon from 'components/material-icon';
+import Highlight from '../highlight';
 import style from './style.css';
 
 function File(props) {
@@ -36,7 +37,7 @@ function File(props) {
           dispatch(openFileModeView());
         }}
       >
-        {data.KeyShrinked}.{data.Extension}
+        <Highlight source={`${data.KeyShrinked}.${data.Extension}}`} />
       </div>
     </div>
   );

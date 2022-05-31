@@ -1,6 +1,6 @@
-import { Fragment, h } from 'preact';
+import { h } from 'preact';
 import { Router } from 'preact-router';
-import { useContext, useRef, useState } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 import { useSelector } from 'react-redux';
 
 import View from 'routes/view';
@@ -10,7 +10,7 @@ import Header from 'components/header';
 import YoutubeEmbed from 'components/youtube-embed';
 import Footer from 'components/footer';
 
-import style from './style';
+import style from './style.css';
 
 function AppWrapper() {
   const { theme } = useContext(Theme);
@@ -25,16 +25,15 @@ function AppWrapper() {
   return (
     <div id="app" class={theme == 'dark' ? style.darkBg : style.lightBg}>
       <div
-        class={`${style.loaderDivHidden} ${
-          (loading && style.loaderDivActive) || ''
-        }`}
+        class={`${style.loaderDivHidden} ${(loading && style.loaderDivActive) || ''
+          }`}
       >
-        <span class={style.loader}></span>
+        <span class={style.loader} />
       </div>
       {!loading && <Header />}
       {isViewFrameActive && !loading ? (
         <Router>
-          <View path="/" page="aboutMe" />
+          <View path="/" />
           <View path="/desktop" page="desktop" />
           <View path="/about-me" page="aboutMe" />
           <View path="/projects" page="projects" />

@@ -1,6 +1,5 @@
 .text {
   width: 65%;
-  text-align: justify;
 }
 
 .ctaBtn {
@@ -22,6 +21,10 @@
 
 .btnCyan {
   background-color: #63cfcf;
+}
+
+.link {
+  color: inherit;
 }
 
 @media screen and (max-width: 560px) {

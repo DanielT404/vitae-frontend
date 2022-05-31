@@ -6,6 +6,8 @@ COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
 
+RUN npm run test || exit 1
+
 COPY startContainer.sh /startContainer.sh
 COPY cspCompliance.sh /cspCompliance.sh
 

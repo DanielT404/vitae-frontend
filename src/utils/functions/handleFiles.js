@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import { toggleFrameView } from 'features/frame/frameSlice';
 import {
   openFileModeView,

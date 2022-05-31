@@ -27,6 +27,7 @@
   font-size: 0.8rem;
   font-weight: 200;
   padding-bottom: 1rem;
+  height: 45px;
   border-bottom: 2px solid #ff7271;
 }
 
@@ -52,6 +53,11 @@
 @media screen and (max-width: 560px) {
   .grid {
     display: block;
+  }
+
+  .card {
+    margin-bottom: 4rem;
+    margin-top: 1rem;
   }
 
   .cardExternalLink {

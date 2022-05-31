@@ -14,9 +14,10 @@ function MinimizedFiles() {
   const dispatch = useDispatch();
   const minimizedFiles = useSelector((state) => state.file.minimizedFiles);
   const isViewFrameModeActive = useSelector((state) => state.frame.value);
+  let isOnSmallerViewport = null;
 
-  const { width } = typeof window !== 'undefined' && useWindowDimensions();
-  const isOnSmallerViewport = width < 1280;
+  const { width } = useWindowDimensions() || 0;
+  isOnSmallerViewport = width < 1280;
 
   return (
     <Fragment>

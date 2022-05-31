@@ -4,16 +4,13 @@ import { mockStore } from './utils/mockStore'
 import { route } from 'preact-router'
 import fetchFiles from '../src/utils/functions/fetchFiles'
 
-describe('<Frame />', () => {
-    let mockStoreContext = mockStore
-
-    test('should try to retrieve files from api on desktop page', async () => {
-        route('/desktop')
+describe('<Desktop />', () => {
+    it('should try to retrieve files from api', async () => {
         const mockDispatch = jest.fn()
         let files
         try {
             files = await fetchFiles()
-        } catch {
+        } catch (err) {
             files = []
         }
         mockDispatch({ type: 'file/setFileArr', payload: files })
@@ -22,10 +19,10 @@ describe('<Frame />', () => {
             payload: files,
         })
         const firstCall = mockDispatch.mock.calls[0][0]
-        mockStoreContext.file.files = firstCall.payload.files || []
+        mockStore.file.files = firstCall.payload.files || []
     })
 
     test('files array must be empty or filled', () => {
-        expect(mockStoreContext.file.files.length).toBeGreaterThanOrEqual(0)
+        expect(mockStore.file.files.length).toBeGreaterThanOrEqual(0)
     })
 })

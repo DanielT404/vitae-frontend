@@ -7,5 +7,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install --silent
 COPY . .
 
+RUN npm run test || exit 1
+
 CMD ["sh", "-c", "npm run dev"]
 

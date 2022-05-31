@@ -13,12 +13,11 @@ function Frame({ props }) {
   const { theme } = useContext(Theme);
   return (
     <div
-      class={`${style.container} ${
-        theme == 'light' ? style.lightBg : style.darkBg
-      }`}
+      class={`${style.container} ${theme == 'light' ? style.lightBg : style.darkBg
+        }`}
     >
       <HeaderFrame path={path} />
-      <BodyFrame page={page} />
+      <BodyFrame page={page ? page : 'aboutMe'} />
     </div>
   );
 }
