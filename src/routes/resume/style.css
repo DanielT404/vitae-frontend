@@ -54,6 +54,12 @@
   overflow-y: none;
 }
 
+@media (max-width: 560px) {
+  .downloadBtn {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1280px) {
   .pdfViewer {
     display: block;
