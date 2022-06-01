@@ -17,8 +17,8 @@ describe('Routing tests', () => {
     expect(app.exists(Router)).toBe(true);
   });
 
-  test('<AboutMe /> is mounted on View.props.page = null and View.props.path="/"', () => {
-    const app = getCurrentSnapshot(<View path='/' />, mockStore);
+  test('<AboutMe /> is mounted on View.props.path="/"', () => {
+    const app = getCurrentSnapshot(<View path='/' page="aboutMe" />, mockStore);
     expect(app.find(View).prop('path')).toBe('/');
     expect(app.exists(AboutMe)).toBe(true);
   });
