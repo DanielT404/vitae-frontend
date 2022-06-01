@@ -9,8 +9,8 @@ import Icon from '../../material-icon/index';
 import style from './style.css';
 
 function WindowFrame() {
-  const file = useSelector((state) => state.file.fileInfo);
   const dispatch = useDispatch();
+  const file = useSelector((state) => state.file.fileInfo);
 
   return (
     <div class={`${style.innerWindow}`}>
@@ -20,32 +20,14 @@ function WindowFrame() {
             {file.Type}s - {file.Key}
           </div>
           <div class={style.icons}>
-            <Icon
-              type="minimize"
-              class={style.icon}
-              onClick={() => handleFileMinimize(file, dispatch)}
-            />
-            <Icon
-              type="fullscreen"
-              class={style.icon}
-              onClick={() => {
-                window.open(`${file.ResourcePath}`, '_blank');
-              }}
-            />
-            <Icon
-              type="close"
-              class={`${style.icon} ${style.exitIcon}`}
-              onClick={() => handleFileClose(file, dispatch)}
-            />
+            <Icon type="minimize" class={style.icon} onClick={() => handleFileMinimize(file, dispatch)} />
+            <Icon type="fullscreen" class={style.icon} onClick={() => window.open(`${file.ResourcePath}`, '_blank')} />
+            <Icon type="close" class={`${style.icon} ${style.exitIcon}`} onClick={() => handleFileClose(file, dispatch)} />
           </div>
         </div>
         <div class={style.innerWindowContent}>
           {file.Type === 'image' && (
-            <img
-              class={style.innerWindowImg}
-              src={file.ResourcePath}
-              alt={`${file.Key} image`}
-            />
+            <img class={style.innerWindowImg} src={file.ResourcePath} alt={`${file.Key} image`} />
           )}
           {file.Type !== 'image' && <h5>{file.Contents}</h5>}
         </div>

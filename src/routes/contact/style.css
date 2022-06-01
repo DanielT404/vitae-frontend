@@ -12,8 +12,9 @@
   margin-right: 10px;
 }
 
-.formWrapper {
-  margin-top: 2rem;
+.contactWrapper {
+  margin-top: 6rem;
+  position: relative;
 }
 
 .inputGroup input {
@@ -40,6 +41,18 @@
 
 .errorBg {
   background: #ff7272;
+}
+
+.contactWrapper {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+@media screen and (max-width: 560px) {
+  .contactWrapper {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 @media screen and (max-width: 1280px) {

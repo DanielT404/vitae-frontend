@@ -1,9 +1,14 @@
 import { h, Fragment } from 'preact';
+import { Document, Page, pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 import Icon from 'components/material-icon';
 import style from './style.css';
 
 const Resume = () => {
+  const _CV_FIRST_PAGE = 1;
+  const _CV_SECOND_PAGE = 2;
+
   return (
     <Fragment>
       <div
@@ -25,13 +30,12 @@ const Resume = () => {
           <Icon type="download" />
         </a>
       </div>
-      <object
-        data="/assets/cv.pdf"
-        type="application/pdf"
-        style="width: 100%; height: calc(100% - 25px)"
-      >
-        <iframe src="https://docs.google.com/viewer?url=cv.pdf&embedded=true" />
-      </object>
+      <div class={style.resumeWrapper}>
+        <Document file="/assets/cv.pdf" className={style.pdfViewer}>
+          <Page pageNumber={_CV_FIRST_PAGE} className={style.pdfPage} />
+          <Page pageNumber={_CV_SECOND_PAGE} className={`${style.pdfPage} ${style.noOverflowY}`} />
+        </Document>
+      </div>
     </Fragment>
   );
 };

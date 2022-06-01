@@ -15,20 +15,11 @@ function Footer() {
   return (
     <footer class={style.footer}>
       <Fragment>
-        <Link
-          class={`${style.icon} ${!isViewFrameModeActive && style.isActive}`}
-        >
+        <Link class={`${style.icon} ${!isViewFrameModeActive && style.isActive}`}>
           <Icon type="explore" />
         </Link>
-        <Link
-          class={`${style.icon} ${isViewFrameModeActive && style.isActive}`}
-        >
-          <Icon
-            type="cast"
-            onClick={() =>
-              !isViewFrameModeActive && dispatch(toggleFrameView())
-            }
-          />
+        <Link class={`${style.icon} ${isViewFrameModeActive && style.isActive}`}>
+          <Icon type="cast" onClick={() => dispatch(toggleFrameView())} />
         </Link>
       </Fragment>
       <MinimizedFiles />

@@ -8,7 +8,6 @@
 .innerBody {
   display: flex;
   flex-direction: column;
-  margin-top: 12rem;
   margin-left: 6rem;
   margin-right: 6rem;
   position: relative;
@@ -25,10 +24,6 @@
 .bodyContent {
   color: #efeeee;
   font-size: 1rem;
-}
-
-.resumeBg {
-  background: #fff;
 }
 
 @media screen and (max-width: 560px) {
@@ -50,8 +45,11 @@
     height: 100%;
   }
 
+  .text {
+  }
+
   .innerBody {
-    margin: 2rem 2rem 0 2rem;
+    margin: 0;
     padding-bottom: 2rem;
   }
 }

@@ -27,4 +27,4 @@ function handleNavigation(currentPath, type) {
   }
 }
 
-export default handleNavigation;
+export { handleNavigation };

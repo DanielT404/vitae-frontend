@@ -11,13 +11,14 @@ import style from './style.css';
 function Frame({ props }) {
   const { path, page } = props;
   const { theme } = useContext(Theme);
+
   return (
-    <div
-      class={`${style.container} ${theme == 'light' ? style.lightBg : style.darkBg
-        }`}
-    >
+    <div class={`
+      ${style.container} 
+      ${theme == 'light' ? style.lightBg : style.darkBg}
+    `}>
       <HeaderFrame path={path} />
-      <BodyFrame page={page ? page : 'aboutMe'} />
+      <BodyFrame page={page} />
     </div>
   );
 }

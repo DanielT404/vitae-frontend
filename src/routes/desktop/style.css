@@ -1,5 +1,5 @@
 .windowsBackground {
-  background-image: url('/assets/frame-bg.jpg');
+  background-image: url('/assets/frame-bg-1600w.jpg');
   background-size: cover;
 }
 
@@ -12,7 +12,7 @@
   position: relative;
 }
 
-@media screen and (max-width: 560px) {
+@media (max-width: 560px) {
   .desktopContent {
     grid-template-rows: repeat(6, 1fr);
     width: 100%;
@@ -21,6 +21,7 @@
   }
 
   .windowsBackground {
+    background-image: url('/assets/frame-bg-800w.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding-bottom: 5rem;
@@ -36,8 +37,42 @@
   }
 
   .windowsBackground {
+    background-image: url('/assets/frame-bg-1280w.jpg');
     background-size: cover;
     background-position: 100% 50%;
     background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .windowsBackground {
+    background-image: url('/assets/frame-bg-1366w.jpg');
+    background-size: cover;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+  .windowsBackground {
+    background-image: url('/assets/frame-bg-1440w.jpg');
+    background-size: cover;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .windowsBackground {
+    background-image: url('/assets/frame-bg-1920w.jpg');
+    background-size: cover;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 2560px) {
+  .windowsBackground {
+    background-image: url('/assets/frame-bg-3840w.jpg');
   }
 }

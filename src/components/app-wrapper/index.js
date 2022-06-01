@@ -13,10 +13,11 @@ import Footer from 'components/footer';
 import style from './style.css';
 
 function AppWrapper() {
-  const { theme } = useContext(Theme);
   const YOUTUBE_VIDEO_IDENTIFIER = 'dQw4w9WgXcQ';
+  const isViewFrameActive = useSelector((state) => state.frame.value);
   const [loading, setIsLoading] = useState(true);
-  let isViewFrameActive = useSelector((state) => state.frame.value);
+
+  const { theme } = useContext(Theme);
 
   setTimeout(() => {
     setIsLoading(false);
@@ -24,16 +25,13 @@ function AppWrapper() {
 
   return (
     <div id="app" class={theme == 'dark' ? style.darkBg : style.lightBg}>
-      <div
-        class={`${style.loaderDivHidden} ${(loading && style.loaderDivActive) || ''
-          }`}
-      >
+      <div class={`${style.loaderDivHidden} ${(loading && style.loaderDivActive)}`}>
         <span class={style.loader} />
       </div>
       {!loading && <Header />}
       {isViewFrameActive && !loading ? (
         <Router>
-          <View path="/" />
+          <View path="/" page="aboutMe" />
           <View path="/desktop" page="desktop" />
           <View path="/about-me" page="aboutMe" />
           <View path="/projects" page="projects" />

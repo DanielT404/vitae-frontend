@@ -1,6 +1,7 @@
 import { toggleFrameView } from 'features/frame/frameSlice';
 import {
   openFileModeView,
+  addMinimizedFile,
   closeFileModeView,
   clearActiveFiles,
   triggerFileStatus,
@@ -9,13 +10,23 @@ import {
   closeMinimizedFile
 } from 'features/file/fileSlice';
 
+
 const handleFileOpen = (file, dispatch, isViewFrameModeActive) => {
+  if (!isViewFrameModeActive) dispatch(toggleFrameView());
+  dispatch(openFileModeView());
+  dispatch(clearActiveFiles());
+  dispatch(addMinimizedFile({ ...file, status: 'active' }));
+  dispatch(updateFileInfo({ ...file }));
+
+};
+
+const handleFileMinimizedOpen = (file, dispatch, isViewFrameModeActive) => {
   if (!isViewFrameModeActive) dispatch(toggleFrameView());
   dispatch(openFileModeView());
   dispatch(updateFileInfo({ ...file }));
   dispatch(clearActiveFiles());
-  dispatch(triggerFileStatus({ ...file, status: 'active' }));
-};
+  dispatch(triggerFileStatus({ ...file, status: 'active' }));;
+}
 
 const handleFileClose = (file, dispatch) => {
   dispatch(clearActiveFiles());
@@ -35,4 +46,4 @@ const handleFileMinimize = (file, dispatch) => {
   dispatch(clearActiveFiles());
 };
 
-export { handleFileOpen, handleFileMinimize, handleFileClose };
+export { handleFileOpen, handleFileMinimizedOpen, handleFileMinimize, handleFileClose };

@@ -1,5 +1,5 @@
 import { h, Fragment } from 'preact';
-import { useContext } from 'preact/hooks';
+import { useContext, useRef } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Theme from 'utils/contexts/Theme';
@@ -29,6 +29,7 @@ const Contact = () => {
   const message = useSelector((state) => state.contactForm.message);
   const token = useSelector((state) => state.captcha.token);
   const response = useSelector((state) => state.contactForm.response);
+  const captchaWrapper = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +57,7 @@ const Contact = () => {
   };
 
   return (
-    <Fragment>
+    <div class={style.contactWrapper}>
       {response.message && (
         <div
           class={`${style.notification} ${response.success ? style.successBg : style.errorBg
@@ -74,7 +75,7 @@ const Contact = () => {
       <div class={style.text}>
         <Highlight source="Reach me via" />
         <span class={style.linkedIn}>
-          <a href="https://linkedin.com/test">
+          <a href="https://linkedin.com/in/daniel-țună-16596b240" rel="noreferrer" target="_blank">
             <img
               src={`${theme == 'dark'
                 ? '/assets/linkedin-light.png'
@@ -120,15 +121,15 @@ const Contact = () => {
               }
             />
           </div>
-          <div id="google-captcha">
-            <Captcha />
+          <div id="google-captcha" ref={captchaWrapper}>
+            <Captcha ref={captchaWrapper} />
           </div>
           <button type="submit" class={style.sendBtn}>
             Send
           </button>
         </form>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

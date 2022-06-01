@@ -4,11 +4,12 @@ function Icon(props) {
   const { onClick, onMouseEnter } = props;
 
   return (
-    <span
-      class={`material-icons ${props.class && props.class}`}
+    <span class={`
+      material-icons 
+      ${props.class !== undefined && props.class}
+      `}
       onClick={onClick}
-      onMouseEnter={onMouseEnter}
-    >
+      onMouseEnter={onMouseEnter}>
       {props.type}
     </span>
   );

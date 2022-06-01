@@ -7,7 +7,7 @@ export const highlightSlice = createSlice({
         searchText: ''
     },
     reducers: {
-        setComponentState: (state, action) => {
+        setHighlightState: (state, action) => {
             state.isActive = action.payload.state;
         },
         setSearchText: (state, action) => {
@@ -20,6 +20,6 @@ export const highlightSlice = createSlice({
     },
 })
 
-export const { setComponentState, setSearchText } =
+export const { setHighlightState, setSearchText } =
     highlightSlice.actions
 export default highlightSlice.reducer

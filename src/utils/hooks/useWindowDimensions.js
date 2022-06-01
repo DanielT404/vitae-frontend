@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'preact/hooks';
 
 function getWindowDimensions() {
-  if (typeof window !== 'undefined') {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height
-    };
-  }
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
 }
 
 export default function useWindowDimensions() {

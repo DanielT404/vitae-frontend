@@ -8,7 +8,7 @@ function insertCss() {
     .getElementsByTagName('head')[0]
     .insertAdjacentHTML(
       'beforeend',
-      '<link rel="stylesheet" href="$BUNDLED_CSS_FILENAME" media="all" />'
+      '<link rel="preload" href="$BUNDLED_CSS_FILENAME" media="all" as="style" />'
     );
 }
 if(document.readyState === 'loading') {

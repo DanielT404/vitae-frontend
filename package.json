@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "preact build",
+    "build": "preact build --no-prerender",
     "start": "sirv build --port 8080 --cors --single --host",
     "dev": "preact watch",
     "lint": "eslint src",
@@ -33,7 +33,7 @@
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1",
     "react-google-recaptcha": "^2.1.0",
-    "react-pdf": "^5.7.2",
+    "react-pdf": "5.7.2",
     "react-redux": "^8.0.1",
     "redux-mock-store": "^1.5.4",
     "uuid": "^8.3.2"

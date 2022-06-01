@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, render } from 'preact';
 import { useContext } from 'preact/hooks';
 
 import Theme from 'utils/contexts/Theme';
@@ -13,44 +13,26 @@ import TreeFrame from '../tree';
 import style from './style.css';
 
 function BodyFrame({ page }) {
+  const MapPageToComponent = {
+    'desktop': Desktop,
+    'aboutMe': AboutMe,
+    'projects': Projects,
+    'resume': Resume,
+    'contact': Contact
+  }
+  const RenderPageComponent = MapPageToComponent[page];
   const { theme } = useContext(Theme);
+
   return (
     <div class={style.bodyFrame}>
       <TreeFrame currentNav={page} />
-      {page == 'desktop' && <Desktop />}
-      {page == 'aboutMe' && (
-        <div
-          class={`${style.innerBody} ${theme == 'light'
-              ? style.innerBodyLightColor
-              : style.innerBodyDarkColor
-            }`}
-        >
-          <AboutMe />
-        </div>
-      )}
-      {page == 'projects' && (
-        <div
-          class={`${style.innerBody} ${theme == 'light'
-              ? style.innerBodyLightColor
-              : style.innerBodyDarkColor
-            }`}
-        >
-          <Projects />
-        </div>
-      )}
-      {page == 'resume' && (
-        <div class={style.resumeBg}>
-          <Resume />
-        </div>
-      )}
-      {page == 'contact' && (
-        <div
-          class={`${style.innerBody} ${theme == 'light'
-              ? style.innerBodyLightColor
-              : style.innerBodyDarkColor
-            }`}
-        >
-          <Contact />
+      {page == "desktop" && <Desktop />}
+      {page !== "desktop" && (
+        <div class={`
+          ${style.innerBody} 
+          ${theme == "light" ? style.innerBodyLightColor : style.innerBodyDarkColor}
+        `}>
+          <RenderPageComponent />
         </div>
       )}
     </div>
