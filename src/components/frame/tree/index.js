@@ -7,7 +7,7 @@ import { hideNavTree, showNavTree } from 'features/frame/frameSlice';
 
 import Theme from 'utils/contexts/Theme';
 import useWindowDimensions from 'utils/hooks/useWindowDimensions';
-import { SMALL_VIEWPORT_BREAKPOINT } from '/utils/global/constants'
+import { SMALL_VIEWPORT_BREAKPOINT } from 'utils/global/constants'
 
 import Icon from 'components/material-icon';
 import style from './style.css';
