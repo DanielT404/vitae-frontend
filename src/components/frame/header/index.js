@@ -4,9 +4,12 @@ import { route } from 'preact-router';
 import { useContext, useState } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
+
+import { closeFrameView, toggleNavTree } from 'features/frame/frameSlice';
+import { clearActiveFiles, clearFileInfo, closeFileModeView } from 'features/file/fileSlice';
 import { setHighlightState, setSearchText } from 'features/highlight/highlightSlice';
-import { toggleFrameView, toggleNavTree } from 'features/frame/frameSlice';
 import { updateToken } from 'features/captcha/captchaSlice';
+
 import { handleNavigation } from 'utils/functions/handleNavigation';
 
 import Theme from 'utils/contexts/Theme';
@@ -171,7 +174,10 @@ function HeaderFrame({ path }) {
             class={style.exit}
             onClick={() => {
               dispatch(updateToken({ token: null }))
-              dispatch(toggleFrameView())
+              dispatch(closeFrameView());
+              dispatch(clearActiveFiles());
+              dispatch(clearFileInfo());
+              dispatch(closeFileModeView());
             }}
           >
             <span>x</span>

@@ -1,5 +1,5 @@
 import { h, Fragment } from 'preact';
-import { useContext, useRef } from 'preact/hooks';
+import { useContext, useState } from 'preact/hooks';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Theme from 'utils/contexts/Theme';
@@ -17,11 +17,13 @@ import {
 } from 'features/contact-form/contactFormSlice';
 import sendEmail from './utils/sendEmail';
 
+import WindowFrame from 'components/file/window';
 
 import style from './style.css';
 
 const Contact = () => {
   const { theme } = useContext(Theme);
+  const isViewFileMode = useSelector((state) => state.file.viewFileMode);
 
   const dispatch = useDispatch();
   const name = useSelector((state) => state.contactForm.name);
@@ -29,7 +31,8 @@ const Contact = () => {
   const message = useSelector((state) => state.contactForm.message);
   const token = useSelector((state) => state.captcha.token);
   const response = useSelector((state) => state.contactForm.response);
-  const captchaWrapper = useRef();
+
+  const [isNotificationShown, setIsNotificationShown] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,15 +57,17 @@ const Contact = () => {
         })
       );
     }
+    setIsNotificationShown(true);
+    setTimeout(() => setIsNotificationShown(false), 6000)
   };
 
   return (
     <div class={style.contactWrapper}>
-      {response.message && (
-        <div
-          class={`${style.notification} ${response.success ? style.successBg : style.errorBg
-            }`}
-        >
+      {response.message && isNotificationShown && (
+        <div class={`
+          ${style.notification} 
+          ${response.success ? style.successBg : style.errorBg}
+        `}>
           <p>{response.message}</p>
           {response?.messageId && (
             <Fragment>
@@ -73,6 +78,7 @@ const Contact = () => {
         </div>
       )}
       <div class={style.text}>
+        {isViewFileMode && <WindowFrame />}
         <Highlight source="Reach me via" />
         <span class={style.linkedIn}>
           <a href="https://linkedin.com/in/daniel-țună-16596b240" rel="noreferrer" target="_blank">
@@ -121,8 +127,8 @@ const Contact = () => {
               }
             />
           </div>
-          <div id="google-captcha" ref={captchaWrapper}>
-            <Captcha ref={captchaWrapper} />
+          <div id="google-captcha">
+            <Captcha />
           </div>
           <button type="submit" class={style.sendBtn}>
             Send

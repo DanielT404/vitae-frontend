@@ -4,16 +4,17 @@ import { useContext, useState } from 'preact/hooks';
 import { useSelector } from 'react-redux';
 
 import View from 'routes/view';
-import Theme from 'utils/contexts/Theme';
 
 import Header from 'components/header';
 import YoutubeEmbed from 'components/youtube-embed';
 import Footer from 'components/footer';
 
+import { YOUTUBE_VIDEO_IDENTIFIER } from 'utils/global/constants';
+import Theme from 'utils/contexts/Theme';
+
 import style from './style.css';
 
 function AppWrapper() {
-  const YOUTUBE_VIDEO_IDENTIFIER = 'dQw4w9WgXcQ';
   const isViewFrameActive = useSelector((state) => state.frame.value);
   const [loading, setIsLoading] = useState(true);
 

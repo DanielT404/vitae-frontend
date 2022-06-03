@@ -13,8 +13,13 @@
 }
 
 .contactWrapper {
-  margin-top: 6rem;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .inputGroup input {
@@ -31,7 +36,7 @@
 .notification {
   position: absolute;
   top: -6rem;
-  width: 100%;
+  width: calc(100% - 8rem);
   padding: 1rem;
 }
 
@@ -52,6 +57,7 @@
   .contactWrapper {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    padding: 0;
   }
 }
 
@@ -59,5 +65,18 @@
   .notification {
     position: static;
     margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .formWrapper {
+    margin-top: 25px;
+  }
+
+  .inputGroup {
+    margin-bottom: 10px;
+  }
+
+  .sendBtn {
+    margin-top: 15px;
   }
 }

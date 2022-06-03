@@ -2,7 +2,9 @@ import { h, Fragment } from 'preact';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'preact-router';
 
-import { toggleFrameView } from 'features/frame/frameSlice';
+import { openFrameView, closeFrameView } from 'features/frame/frameSlice';
+import { clearActiveFiles, clearFileInfo, closeFileModeView } from 'features/file/fileSlice';
+import { updateToken } from 'features/captcha/captchaSlice';
 
 import Icon from 'components/material-icon';
 import MinimizedFiles from 'components/file/minimized';
@@ -16,10 +18,17 @@ function Footer() {
     <footer class={style.footer}>
       <Fragment>
         <Link class={`${style.icon} ${!isViewFrameModeActive && style.isActive}`}>
-          <Icon type="explore" />
+          <Icon type="explore" onClick={() => {
+            dispatch(updateToken({ token: null }))
+            dispatch(closeFrameView())
+            dispatch(clearActiveFiles());
+            dispatch(clearFileInfo());
+            dispatch(closeFileModeView());
+          }
+          } />
         </Link>
         <Link class={`${style.icon} ${isViewFrameModeActive && style.isActive}`}>
-          <Icon type="cast" onClick={() => dispatch(toggleFrameView())} />
+          <Icon type="cast" onClick={() => dispatch(openFrameView())} />
         </Link>
       </Fragment>
       <MinimizedFiles />

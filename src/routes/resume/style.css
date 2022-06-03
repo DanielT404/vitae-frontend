@@ -17,7 +17,6 @@
 
 .downloadBtn {
   cursor: pointer;
-  width: calc(100% - 5px);
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   display: flex;
@@ -43,7 +42,6 @@
 }
 
 .pdfPage {
-  width: 100%;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -55,7 +53,7 @@
 
 @media (max-width: 560px) {
   .downloadBtn {
-    width: 100%;
+    width: calc(100% - 5px);
   }
 }
 

@@ -1,6 +1,10 @@
 .text {
-  margin-top: 14rem;
   width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 6rem;
 }
 
 .ctaBtn {
@@ -12,8 +16,7 @@
 
 .ctaSection {
   display: flex;
-  justify-content: space-between;
-  margin-top: 7rem;
+  margin-top: 1.5rem;
 }
 
 .btnLightGreen {
@@ -21,6 +24,7 @@
 }
 
 .btnCyan {
+  margin-left: 15px;
   background-color: #63cfcf;
 }
 
@@ -38,6 +42,9 @@
     width: 100%;
     text-align: left;
   }
+  .btnCyan {
+    margin-left: 0;
+  }
   .ctaBtn:last-child {
     margin-top: 1rem;
   }
@@ -49,6 +56,9 @@
     padding-left: 2rem;
     padding-right: 2rem;
     width: 85%;
+  }
+  .btnCyan {
+    margin-left: 0;
   }
   .ctaSection {
     display: block;

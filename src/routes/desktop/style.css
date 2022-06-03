@@ -10,6 +10,8 @@
   grid-auto-flow: column;
   padding-top: 2rem;
   position: relative;
+  width: 100%;
+  height: calc(100% - 43px);
 }
 
 @media (max-width: 560px) {

@@ -7,8 +7,11 @@ export const frameSlice = createSlice({
     isNavTreeShown: false
   },
   reducers: {
-    toggleFrameView: (state) => {
-      state.value = !state.value;
+    openFrameView: (state) => {
+      state.value = true;
+    },
+    closeFrameView: (state) => {
+      state.value = false;
     },
     toggleNavTree: (state) => {
       state.isNavTreeShown = !state.isNavTreeShown;
@@ -22,6 +25,6 @@ export const frameSlice = createSlice({
   }
 });
 
-export const { toggleFrameView, toggleNavTree, hideNavTree, showNavTree } =
+export const { openFrameView, closeFrameView, toggleNavTree, hideNavTree, showNavTree } =
   frameSlice.actions;
 export default frameSlice.reducer;

@@ -1,12 +1,17 @@
 import { h } from 'preact';
+import { useSelector } from 'react-redux';
 import { Link } from 'preact-router';
+
+import WindowFrame from 'components/file/window';
 import Highlight from 'components/highlight';
 
 import style from './style.css';
 
 const AboutMe = () => {
+  const isViewFileMode = useSelector((state) => state.file.viewFileMode);
   return (
     <div class={style.text}>
+      {isViewFileMode && <WindowFrame />}
       <p>
         <Highlight source="Enthusiast, self-taught 24 year old programmer from Bucharest, Romania." />
         <br />
