@@ -61,6 +61,13 @@
   }
 }
 
+@media (min-width: 560px) and (max-width: 1280px) {
+  .contactWrapper {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .notification {
     position: static;

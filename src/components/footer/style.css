@@ -9,6 +9,11 @@
   width: calc(100% - 4rem);
 }
 
+.absolutePositionBottom {
+  position: absolute;
+  left: 0;
+}
+
 .isActive {
   border-bottom: 3px solid #ff7272;
   background: hsla(0, 0%, 70%, 0.5);

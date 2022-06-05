@@ -1,234 +1,234 @@
 ::-webkit-input-placeholder {
-    font-family: "Fira Mono", sans-serif;
+  font-family: 'Fira Mono', sans-serif;
 }
 ::-moz-placeholder {
-    font-family: "Fira Mono", sans-serif;
+  font-family: 'Fira Mono', sans-serif;
 }
-:-ms-input-placeholder { 
-    font-family: "Fira Mono", sans-serif;
+:-ms-input-placeholder {
+  font-family: 'Fira Mono', sans-serif;
 }
 :-moz-placeholder {
-    font-family: "Fira Mono", sans-serif;
+  font-family: 'Fira Mono', sans-serif;
 }
 
 .header {
-    position: relative;
-    display: flex;
-    padding-left: 2rem;
-    justify-content: space-between;
-    height: 75px;
+  position: relative;
+  display: flex;
+  padding-left: 2rem;
+  justify-content: space-between;
+  height: 75px;
 }
 
 .darkHeaderBg {
-    background: #1A1A1A;
+  background: #1a1a1a;
 }
 
 .lightHeaderBg {
-    background: #fff;
+  background: #fff;
 }
 
 .borderBottomLight {
-    border-bottom: 10px solid #f1f1f1;
+  border-bottom: 10px solid #f1f1f1;
 }
 
-
-.navigation, .pathBox, .keywordBox {
-    display: flex;
-    align-items: center;
+.navigation,
+.pathBox,
+.keywordBox {
+  display: flex;
+  align-items: center;
 }
 
 .keywordBox {
-    border: 1px solid #383838;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 1rem 10rem 1rem 1rem;
+  border: 1px solid #383838;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 1rem 10rem 1rem 1rem;
 }
 
 .keywordInput {
-    background: transparent;
-    border: none;
-    width: 170px;
+  background: transparent;
+  border: none;
+  width: 170px;
 }
 
 .keywordInputLightColor {
-    color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .keywordInputDarkColor {
-    color: #fff;
+  color: #fff;
 }
 
-
 .pathBox {
-    width: 800px;
-    border: 1px solid #383838;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
+  width: 800px;
+  border: 1px solid #383838;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .pathDark {
-    color: #fff;
+  color: #fff;
 }
 
-.pathLight { 
-    color: #1c1c1c;
+.pathLight {
+  color: #1c1c1c;
 }
 
 .exit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 45px;
-    width: 45px;
-    background: #ff7272;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  background: #ff7272;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .navIcon {
-    font-size: 2rem;
-    padding-right: 2rem;
-    cursor: pointer;
+  font-size: 2rem;
+  padding-right: 2rem;
+  cursor: pointer;
 }
 
 .navIconLight {
-    color: #444444;
+  color: #444444;
 }
 
 .navIconDark {
-    color: #E3E2E2;
+  color: #e3e2e2;
 }
 
 .notAvailableIconDark {
-    color: #555555;
+  color: #555555;
 }
 
 .notAvailableIconLight {
-    color: #717171;
+  color: #717171;
 }
 
 .httpButton {
-    color: #A6A6A6;
-    padding-right: 0.5rem;
+  color: #a6a6a6;
+  padding-right: 0.5rem;
 }
 
 .hamburger {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 
 .expandSection {
-    color: #fff;
-    text-align: center;
-    font-size: 2rem;
-    background: #ff7271;
-    cursor: pointer;
-    height: 75px;
-    line-height: 75px;
+  color: #fff;
+  font-size: 2rem;
+  background: #ff7271;
+  cursor: pointer;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 560px) {
-    .header {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 0;
-        height: 100%;
-    }
+  .header {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    height: 100%;
+  }
 
-    .navigation {
-        justify-content: flex-start;
-        order: 2;
-        padding: 0;
-        margin: 1rem 0 1rem 0.8rem;
-    }
+  .navigation {
+    justify-content: flex-start;
+    order: 2;
+    padding: 0;
+    margin: 1rem 0 1rem 0.8rem;
+  }
 
-    .pathBox {
-        width: 100%;
-        margin: 0 0 1rem 0;
-        order: 3;
-        word-break: break-word;
-        font-size: 0.9rem;
-        padding: 0.8rem;
-    }
+  .pathBox {
+    width: 100%;
+    margin: 0 0 1rem 0;
+    order: 3;
+    word-break: break-word;
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
 
-    .keywordBox {
-        margin: 0 0 1rem 0;
-        order: 4;
-    }
+  .keywordBox {
+    margin: 0 0 1rem 0;
+    order: 4;
+  }
 
+  .exit {
+    width: 100%;
+    order: 1;
+    height: 50px;
+  }
 
-    .exit {
-        width: 100%;
-        order: 1;
-        height: 50px;
-    }
-
-    .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 1.2rem;
-        -ms-flex-order: 5;
-        order: 5;
-        margin-top: 0.4rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        background: #7a91b1;
-        padding: 0.6rem;
-    }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    -ms-flex-order: 5;
+    order: 5;
+    margin-top: 0.4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: #7a91b1;
+    padding: 0.6rem;
+  }
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
-    .header {
-        flex-direction: column;
-        height: 100%;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        padding-right: 2rem;
-    }
+  .header {
+    flex-direction: column;
+    height: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+  }
 
-    .navigation {
-        margin-bottom: 1rem;
-        order: 2;
-    }
+  .navigation {
+    margin-bottom: 1rem;
+    order: 2;
+  }
 
-    .pathBox {
-        width: 100%;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        order: 3;
-        padding: 0.75rem;
-    }
+  .pathBox {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    order: 3;
+    padding: 0.75rem;
+  }
 
-    .keywordBox {
-        margin: 0;
-        order: 4;
-    }
+  .keywordBox {
+    margin: 0;
+    order: 4;
+  }
 
-    .exit {
-        display: block;
-        text-align: center;
-        width: 35px;
-        height: auto;
-        order: 1;
-        margin-bottom: 1rem;
-    }
+  .exit {
+    display: block;
+    text-align: center;
+    width: 35px;
+    height: auto;
+    order: 1;
+    margin-bottom: 1rem;
+  }
 
-    .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 1.2rem;
-        -ms-flex-order: 5;
-        order: 5;
-        margin-top: 0.4rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        background: #7a91b1;
-        padding: 0.6rem;
-    }
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    -ms-flex-order: 5;
+    order: 5;
+    margin-top: 0.4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: #7a91b1;
+    padding: 0.6rem;
+  }
 }

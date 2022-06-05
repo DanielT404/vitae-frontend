@@ -25,6 +25,7 @@
   width: 100%;
   height: 100%;
   padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .darkColor {
@@ -108,6 +109,10 @@
     padding: 0;
   }
 
+  .card {
+    padding: 1.6rem;
+  }
+
   .cardSubHeader {
     height: 100%;
   }
@@ -118,6 +123,9 @@
 
   .card:not(:first-child) {
     margin-top: 2.5rem;
+  }
+
+  .card:not(:last-child) {
     margin-bottom: 2.5rem;
   }
 
@@ -138,6 +146,21 @@
     display: block;
   }
 
+  .card {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .card:not(:first-child) {
+    margin-top: 80px;
+  }
+
+  .card:not(:last-child) {
+    margin-bottom: 80px;
+  }
+
   .cardSubHeader {
     height: 100%;
   }
@@ -145,15 +168,9 @@
   .cardExternalLink {
     position: static;
   }
-
-  .card {
-    margin-top: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1281px) {
   .projectsWrapper {
     overflow: hidden;
     overflow-y: scroll;

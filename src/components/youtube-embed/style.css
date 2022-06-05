@@ -1,18 +1,31 @@
 .videoResponsive {
+  position: absolute;
   width: 100%;
-  height: 80%;
+  height: 70%;
   display: flex;
   justify-content: center;
 }
 
 .videoResponsive iframe {
-  width: 900px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 560px) {
+  .videoResponsive {
+    width: 100%;
+    height: 70%;
+  }
+
   .videoResponsive iframe {
-    width: 240px;
+    width: 100%;
     height: 100%;
   }
 }
+
+/* @media screen and (min-width: 1920px) {
+  .videoResponsive iframe {
+    width: 100%;
+    height: 85%;
+  }
+} */

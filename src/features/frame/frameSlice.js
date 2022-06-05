@@ -4,6 +4,7 @@ export const frameSlice = createSlice({
   name: 'frame',
   initialState: {
     value: true,
+    is404Page: false,
     isNavTreeShown: false
   },
   reducers: {
@@ -12,6 +13,9 @@ export const frameSlice = createSlice({
     },
     closeFrameView: (state) => {
       state.value = false;
+    },
+    set404Page: (state, action) => {
+      state.is404Page = action.payload.is404PageActive
     },
     toggleNavTree: (state) => {
       state.isNavTreeShown = !state.isNavTreeShown;
@@ -25,6 +29,6 @@ export const frameSlice = createSlice({
   }
 });
 
-export const { openFrameView, closeFrameView, toggleNavTree, hideNavTree, showNavTree } =
+export const { openFrameView, closeFrameView, set404Page, toggleNavTree, hideNavTree, showNavTree } =
   frameSlice.actions;
 export default frameSlice.reducer;

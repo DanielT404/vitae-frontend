@@ -53,6 +53,8 @@
 @media (min-width: 560px) and (max-width: 1280px) {
   .text {
     margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 0;
     padding-left: 2rem;
     padding-right: 2rem;
     width: 85%;

@@ -1,11 +1,12 @@
 .pdfPage::-webkit-scrollbar {
-  width: 5px;
+  width: 0;
+  height: 0;
 }
 
 .pdfPage::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #2d2d2d;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-box-shadow: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 .resumeWrapper {
@@ -37,7 +38,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -52,15 +53,29 @@
 }
 
 @media (max-width: 560px) {
+  .pdfViewer {
+    display: block;
+    position: static;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pdfPage {
+    display: block;
+    overflow-x: visible;
+    width: calc(100% - 5px);
+  }
+
   .downloadBtn {
     width: calc(100% - 5px);
   }
 }
 
-@media (max-width: 1280px) {
+@media (min-width: 560px) and (max-width: 1280px) {
   .pdfViewer {
-    display: block;
     position: static;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
   }

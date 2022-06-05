@@ -2,14 +2,13 @@ import { h, Fragment } from 'preact';
 import { useCallback, useEffect } from 'preact/hooks';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { GET_FILES_API_ROUTE } from 'utils/global/constants';
+import { get } from 'utils/functions/handleData';
+
 import { setFiles } from 'features/file/fileSlice';
-import fetchFiles from 'utils/functions/fetchFiles';
 
 import File from 'components/file';
 import WindowFrame from 'components/file/window';
-import Highlight from 'components/highlight';
-
-
 
 import style from './style.css';
 
@@ -19,20 +18,20 @@ const Desktop = () => {
 
   const dispatch = useDispatch();
   const getFiles = useCallback(async () => {
-    const files = await fetchFiles();
+    const files = await get(GET_FILES_API_ROUTE);
     dispatch(setFiles(files));
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     getFiles().catch(() => dispatch(setFiles([])));
-  }, [getFiles, dispatch]);
+  }, []);
 
   return (
     <Fragment>
       <div class={`${style.desktopContent} ${style.windowsBackground}`}>
         {isViewFileMode && <WindowFrame />}
         {fileArr?.success &&
-          fileArr.files.map((file) => <File key={file.Id} data={file} />)}
+          fileArr.data.map((file) => <File key={file.Id} data={file} />)}
       </div>
     </Fragment>
   );

@@ -7,6 +7,7 @@
 }
 
 .loaderDivHidden {
+  position: absolute;
   display: none;
   opacity: 0;
   transition: all 2s ease-out;
@@ -16,6 +17,7 @@
 }
 
 .loaderDivActive {
+  position: absolute;
   display: flex;
   opacity: 1;
   width: 100%;

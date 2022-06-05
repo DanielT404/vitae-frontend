@@ -32,7 +32,7 @@ body {
     margin: initial;
     flex: 1 0 auto;
     overflow: none;
-    height: 100%;
+    height: auto;
   }
 }
 
@@ -42,7 +42,8 @@ body {
     height: auto;
   }
   #app {
-    overflow: none;
+    overflow: none !important;
+    height: auto;
   }
 }
 

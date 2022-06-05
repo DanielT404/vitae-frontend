@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { Fragment, h } from 'preact';
 import { Router } from 'preact-router';
 import { useContext, useState } from 'preact/hooks';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ import style from './style.css';
 
 function AppWrapper() {
   const isViewFrameActive = useSelector((state) => state.frame.value);
+  const is404Page = useSelector((state) => state.frame.is404Page);
   const [loading, setIsLoading] = useState(true);
 
   const { theme } = useContext(Theme);
@@ -38,13 +39,17 @@ function AppWrapper() {
           <View path="/projects" page="projects" />
           <View path="/resume" page="resume" />
           <View path="/contact" page="contact" />
+          <View default />
         </Router>
       ) : (
         !isViewFrameActive && (
-          <YoutubeEmbed embedId={YOUTUBE_VIDEO_IDENTIFIER} />
+          <Fragment>
+            <YoutubeEmbed embedId={YOUTUBE_VIDEO_IDENTIFIER} />
+            <Footer absolutePositionBottom />
+          </Fragment>
         )
       )}
-      {!loading && <Footer />}
+      {!loading && !is404Page && isViewFrameActive && <Footer />}
     </div>
   );
 }
