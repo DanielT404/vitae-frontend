@@ -93,13 +93,13 @@
   .innerWindow {
     transform: none;
     width: 80%;
-    height: 400px;
+    height: 100%;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     left: 10%;
-    top: 10%;
+    top: 0;
     overflow: hidden;
     flex-direction: column;
   }
@@ -114,20 +114,22 @@
   .innerImageContent {
     padding: 0;
     height: inherit;
+    width: 100%;
     flex: 1;
     height: calc(100% - 95px);
   }
 
   .innerImg {
-    width: fit-content;
+    position: relative;
+    object-fit: cover;
     height: 100%;
   }
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
   .innerWindow {
-    width: 450px;
-    height: 300px;
+    width: 50%;
+    height: 350px;
     position: absolute;
     display: flex;
     justify-content: center;

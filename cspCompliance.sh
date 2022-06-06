@@ -1,5 +1,10 @@
 #!/bin/bash
+
 BUNDLED_CSS_FILENAME=$(find ./build -type f -name bundle.\*.css -exec basename {} \;)
+PRELOAD="preload"
+PRELOAD_AS="style"
+MEDIA_TYPE="all"
+LINK_REL="<link rel=$PRELOAD href=$BUNDLED_CSS_FILENAME media=$MEDIA_TYPE as=$PRELOAD_AS />"
 
 touch ./build/csp-compliance.js
 echo "
@@ -8,7 +13,7 @@ function insertCss() {
     .getElementsByTagName('head')[0]
     .insertAdjacentHTML(
       'beforeend',
-      '<link rel="preload" href="$BUNDLED_CSS_FILENAME" media="all" as="style" />'
+      '$LINK_REL'
     );
 }
 if(document.readyState === 'loading') {

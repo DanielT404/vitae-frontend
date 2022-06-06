@@ -42,12 +42,14 @@ function MinimizedFiles() {
                     />
                   </div>
                   {file.Type === 'image' && (
-                    <img src={file.ResourcePath} style="width: 100%; height: 100%; cursor: pointer;"
-                      onClick={() => handleFileMinimizedOpen(file, dispatch, isViewFrameModeActive)}
-                    />
+                    <div class={style.minimizedImageWrapper}>
+                      <img src={file.ResourcePath} class={style.minimizedImage}
+                        onClick={() => handleFileMinimizedOpen(file, dispatch, isViewFrameModeActive)}
+                      />
+                    </div>
                   )}
                   {file.Type === 'text' && (
-                    <div style="cursor: pointer;"
+                    <div class={style.minimizedText}
                       onClick={() => handleFileMinimizedOpen(file, dispatch, isViewFrameModeActive)}
                     >
                       <p>{file.Contents}</p>

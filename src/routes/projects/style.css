@@ -78,7 +78,7 @@
   font-size: 0.7rem;
   font-weight: 200;
   padding-bottom: 1rem;
-  height: 55px;
+  height: 75px;
   border-bottom: 2px solid #ff7271;
 }
 
@@ -143,30 +143,23 @@
   }
 
   .grid {
-    display: block;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    flex-grow: 1;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: stretch;
   }
 
   .card {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  .card:not(:first-child) {
-    margin-top: 80px;
-  }
-
-  .card:not(:last-child) {
-    margin-bottom: 80px;
-  }
-
-  .cardSubHeader {
-    height: 100%;
-  }
-
-  .cardExternalLink {
-    position: static;
+    width: 300px;
+    height: 350px;
+    flex: 1 0 auto;
+    padding-top: 1.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 

@@ -1,15 +1,20 @@
-FROM node:16.14.2-alpine
+FROM node:16.14.2
+ENV NODE_ENV production
 WORKDIR /app
 
-RUN apk update && apk add --no-cache nano && apk add bash
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
 
 RUN npm run test || exit 1
 
-COPY startContainer.sh /startContainer.sh
-COPY cspCompliance.sh /cspCompliance.sh
+COPY preact.config.js ./preact.config.js
+COPY startContainer.sh ./startContainer.sh
+COPY cspCompliance.sh ./cspCompliance.sh
 
-ENTRYPOINT ["sh", "/startContainer.sh"]
+RUN chmod +x ./startContainer.sh
+RUN chmod +x ./cspCompliance.sh
 
+RUN npm run build
+
+CMD ["/bin/bash", "./startContainer.sh"]
