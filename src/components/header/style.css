@@ -1,4 +1,4 @@
-.container {
+.headerContainer {
   display: flex;
   justify-content: space-between;
   color: #fff;
@@ -19,7 +19,7 @@
   color: #1a1a1a !important;
 }
 
-.icon {
+.defaultSwitchIcon {
   font-size: 2.5rem;
   cursor: pointer;
 }

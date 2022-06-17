@@ -7,8 +7,7 @@
     "build": "preact build --no-prerender",
     "start": "sirv build --port 8080 --cors --single --host --quiet",
     "dev": "preact watch",
-    "lint": "eslint src",
-    "test": "jest"
+    "lint": "eslint src"
   },
   "eslintConfig": {
     "extends": "preact",
@@ -17,15 +16,16 @@
     ]
   },
   "devDependencies": {
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-preact-pure": "^2.0.0",
+    "@types/react-google-recaptcha": "^2.1.5",
+    "@types/react-pdf": "^5.7.2",
+    "@types/uuid": "^8.3.4",
     "eslint": "^6.0.1",
     "eslint-config-preact": "^1.1.0",
     "jest": "^24.9.0",
-    "jest-preset-preact": "^1.0.0",
     "preact-cli": "^3.0.0",
     "preact-material-components": "^1.6.1",
-    "sirv-cli": "1.0.3"
+    "sirv-cli": "1.0.3",
+    "typescript": "^4.7.3"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
@@ -37,18 +37,5 @@
     "react-redux": "^8.0.1",
     "redux-mock-store": "^1.5.4",
     "uuid": "^8.3.2"
-  },
-  "jest": {
-    "preset": "jest-preset-preact",
-    "testMatch": [
-      "<rootDir>/tests/**/*.test.{js,jsx,ts,tsx}",
-      "<rootDir>/tests/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
-    ],
-    "modulePaths": [
-      "<rootDir>/src/"
-    ],
-    "moduleDirectories": [
-      "<rootDir>/node_modules/"
-    ]
   }
 }

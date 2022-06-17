@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "strict": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "preact",
+        "skipLibCheck": true,
+        "baseUrl": "./src/",
+        "paths": {
+            "react": [
+                "../node_modules/preact/compat/"
+            ],
+            "react-dom": [
+                "../node_modules/preact/compat/"
+            ]
+        }
+    }
+}

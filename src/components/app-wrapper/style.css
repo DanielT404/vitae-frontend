@@ -1,8 +1,8 @@
-.darkBg {
+.darkBgApp {
   background-color: #070707;
 }
 
-.lightBg {
+.lightBgApp {
   background: #cafaf4;
 }
 
@@ -10,8 +10,6 @@
   position: absolute;
   display: none;
   opacity: 0;
-  transition: all 2s ease-out;
-  animation: fadeOut 2s;
   width: 100%;
   height: 100%;
 }
@@ -23,9 +21,12 @@
   width: 100%;
   height: 100%;
   justify-content: center;
+  transition: all 2s ease-out;
+  animation: fadeOut 2s;
   align-items: center;
   background: #101010;
   overflow: hidden;
+  z-index: 1;
 }
 
 @-webkit-keyframes fadeOut {

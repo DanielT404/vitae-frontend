@@ -1,4 +1,4 @@
-.container {
+.frameContainer {
   font-family: 'Fira Mono', sans-serif;
   margin-left: 2rem;
   height: 80%;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 560px) {
-  .container {
+  .frameContainer {
     width: 100%;
     height: auto;
     margin: 0;
@@ -21,7 +21,7 @@
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
-  .container {
+  .frameContainer {
     height: auto;
   }
 }

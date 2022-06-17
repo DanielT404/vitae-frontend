@@ -11,7 +11,7 @@
   font-family: 'Fira Mono', sans-serif;
 }
 
-.header {
+.frameHeader {
   position: relative;
   display: flex;
   padding-left: 2rem;
@@ -131,7 +131,7 @@
 }
 
 @media screen and (max-width: 560px) {
-  .header {
+  .frameHeader {
     flex-direction: column;
     justify-content: flex-start;
     padding: 0;
@@ -182,7 +182,7 @@
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
-  .header {
+  .frameHeader {
     flex-direction: column;
     height: 100%;
     padding-top: 2rem;

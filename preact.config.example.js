@@ -3,7 +3,7 @@
    of bundled index.html or not.
 */
 const CSPHelper = {
-  isCSPEnabled: true,
+  isCSPEnabled: false,
   policies: `
       {YOUR_OWN_CSP_POLICIES_HERE}
     `
@@ -11,19 +11,25 @@ const CSPHelper = {
 
 /* 
    Set Critters preloading strategy. 
-   To be compliant with CSP, we must avoid media resource preload and removal using JavaScript inline scripts.
+   To be compliant with CSP, we must avoid media resource preload and removal of JavaScript inline scripts.
    Read more about this in their docs: https://github.com/GoogleChromeLabs/critters#preloadstrategy
 */
 function setPreloadingStrategy(config, helpers) {
   const { plugin } = helpers.getPluginsByName(config, 'Critters')[0] || {};
   if (plugin) {
     plugin.options.preload = CSPHelper.isCSPEnabled ? 'default' : 'media';
+    plugin.options.external = false;
   }
 }
 
 /*
    Define application level environment keys at build time.
    Useful in order to avoid exposing sensitive keys in the code source and reference them in code using {process.env.ENV_VARIABLE} instead.
+   
+   Set `process.env.DEV_MODE` value to either "local" or "docker", depending on where you will run the application.
+   By setting it to "local", all of the API routes will be resolved to your current host (localhost).
+   By setting it to "docker", all of the API routes will be routed within the internal Docker networks.
+   
 */
 function setEnvKeys(config, helpers) {
   const { plugin } = helpers.getPluginsByName(config, 'DefinePlugin')[0] || {};
@@ -32,6 +38,9 @@ function setEnvKeys(config, helpers) {
   );
   plugin.definitions['process.env.GOOGLE_RECAPTCHA_SECRET_KEY'] =
     JSON.stringify('{YOUR_OWN_SECRET_KEY}');
+  plugin.definitions['process.env.DEV_MODE'] = JSON.stringify(
+    "docker"
+  );
 }
 
 /*
@@ -40,14 +49,11 @@ function setEnvKeys(config, helpers) {
    Properties set within the options are available to dynamically placehold values inside /src/template.html
 */
 function extendHtmlConfig(config, helpers) {
-  const { plugin } =
-    helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
+  const { plugin } = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
   if (plugin) {
     plugin.options.title = '{YOUR_OWN_TITLE}';
-    if (CSPHelper.isCSPEnabled) {
-      if (env.isProd) {
-        plugin.options.csp = CSPHelper.policies.trim();
-      }
+    if (CSPHelper.isCSPEnabled && env.isProd) {
+      plugin.options.csp = CSPHelper.policies.trim();
     }
   }
 }
@@ -58,6 +64,17 @@ function extendHtmlConfig(config, helpers) {
 */
 function setImportPathsRelativeToSrcFolder(config, env) {
   config.resolve.modules.push(env.src);
+}
+
+/*
+  Don't append random hash value to CSS classes.
+  Useful in order to make life easier with Cypress, E2E testing and selecting DOM elements by class :-)
+*/
+function removeHashFromCssClasses(config, helpers) {
+  const { loader } = helpers.getLoadersByName(config, 'css-loader')[0] || {};
+  if (loader) {
+    loader.options.modules.localIdentName = '[local]';
+  }
 }
 
 /**
@@ -74,4 +91,6 @@ export default (config, env, helpers, options) => {
   setEnvKeys(config, helpers);
   extendHtmlConfig(config, helpers);
   setImportPathsRelativeToSrcFolder(config, env);
+  removeHashFromCssClasses(config, helpers);
+  config.externals = { ...config.externals, canvas: 'pdf.js' };
 };

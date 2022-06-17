@@ -6,11 +6,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
 
-RUN npm run test || exit 1
-
-COPY preact.config.js ./preact.config.js
-COPY startContainer.sh ./startContainer.sh
-COPY cspCompliance.sh ./cspCompliance.sh
+COPY preact.config.production.js ./preact.config.js
 
 RUN chmod +x ./startContainer.sh
 RUN chmod +x ./cspCompliance.sh

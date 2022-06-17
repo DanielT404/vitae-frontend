@@ -1,0 +1,15 @@
+{
+  "name": "e2e",
+  "version": "0.0.0",
+  "description": "Cypress E2E tests",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "cypress": "10.1.0"
+  },
+  "scripts": {
+    "cypress:run": "cypress run"
+  }
+}
