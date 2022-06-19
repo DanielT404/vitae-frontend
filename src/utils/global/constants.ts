@@ -4,12 +4,10 @@
 
 /* -------------     Constants below are used in ./getPathAPI.ts     ------------- */
 
-// Define the dev local hostname resolution for the backend api - default as localhost (127.0.0.1)
-const API_DEVELOPMENT_HOSTNAME = "localhost";
-// Define the dev prefix of all backend API routes - default as "api" (could be "api/v2", "api/v3" for versioning, ect.)
-const API_DEVELOPMENT_PATHNAME_PREFIX = "api";
-// Define the dev backend api running port - default to 3000
-const API_DEVELOPMENT_PORT = 3000;
+// Define the production-ready API hostname
+const API_PRODUCTION_HOSTNAME = "idratherprogram.com"
+// Define the production-ready API routes prefix
+const API_PRODUCTION_PATHNAME_PREFIX = "api";
 
 /* Define the pathname corresponding to the backend API routes. Default values:
     1. GET /files - pathname is "files"
@@ -19,9 +17,6 @@ const API_DEVELOPMENT_PORT = 3000;
 const GET_FILES_API_ROUTE = "files";
 const GET_PROJECTS_API_ROUTE = "projects";
 const SEND_EMAIL_API_ROUTE = "sendEmail";
-
-// **REQUIRED ON E2E Cypress testing API routing**: Define the backend service name
-const DOCKER_BACKEND_SERVICE_NAME = "backend";
 
 /* -------------     End constants ------------- /*
 
@@ -44,9 +39,8 @@ const SMALL_VIEWPORT_BREAKPOINT = 1280;
 const CV_URL = "https://cv-variants-bucket.s3.eu-central-1.amazonaws.com/Daniel-Florin-Damian_Tuna_-_Junior_Software_Developer-1.pdf";
 
 export { 
-    API_DEVELOPMENT_HOSTNAME, API_DEVELOPMENT_PATHNAME_PREFIX, API_DEVELOPMENT_PORT,
+    API_PRODUCTION_HOSTNAME, API_PRODUCTION_PATHNAME_PREFIX,
     GET_FILES_API_ROUTE, GET_PROJECTS_API_ROUTE, SEND_EMAIL_API_ROUTE,
-    DOCKER_BACKEND_SERVICE_NAME,
     SHOW_DEFAULT_PATH,
     YOUTUBE_VIDEO_IDENTIFIER, SMALL_VIEWPORT_BREAKPOINT, 
     CV_URL

@@ -3,8 +3,10 @@
    of bundled index.html or not.
 */
 const CSPHelper = {
-  isCSPEnabled: false,
-  policies: ``
+  isCSPEnabled: true,
+  policies: `
+      {YOUR_OWN_CSP_POLICIES_HERE}
+    `
 };
 
 /* 
@@ -22,24 +24,15 @@ function setPreloadingStrategy(config, helpers) {
 
 /*
    Define application level environment keys at build time.
-   Useful in order to avoid exposing sensitive keys in the code source and reference them in code using {process.env.ENV_VARIABLE} instead.
-
-   Google reCAPTCHA keys are publicly available to anyone and are for testing/during development phase only.
-   Source: https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha.-what-should-i-do
-   
-   Set `process.env.DOCKER_MODE` value to either "local" or "cypress-testing", depending on the application running context.
-    By setting it to "local", all of the API routes will be resolved to your current host (localhost).
-    By setting it to "cypress-testing", all of the API routes will be resolved within the internal Docker network.
+   Useful in order to avoid exposing sensitive keys in the code source and reference them in code using {process.env.ENV_VARIABLE} instead.   
 */
 function setEnvKeys(config, helpers) {
   const { plugin } = helpers.getPluginsByName(config, 'DefinePlugin')[0] || {};
   plugin.definitions['process.env.GOOGLE_RECAPTCHA_SITE_KEY'] = JSON.stringify(
-    '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+    '{YOUR_OWN_SITE_KEY}'
   );
   plugin.definitions['process.env.GOOGLE_RECAPTCHA_SECRET_KEY'] =
-    JSON.stringify('6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe');
-  plugin.definitions['process.env.DOCKER_MODE'] =
-    JSON.stringify('local');
+    JSON.stringify('{YOUR_OWN_SECRET_KEY}');
 }
 
 /*
@@ -48,11 +41,10 @@ function setEnvKeys(config, helpers) {
    Policies will be dynamically inserted at build time inside /src/template.html.
    Read more about Content-Security-Policy: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 */
-function extendHtmlConfig(config, helpers, env) {
-  const { plugin } =
-    helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
+function extendHtmlConfig(config, helpers) {
+  const { plugin } = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
   if (plugin) {
-    plugin.options.title = "Daniel Țună's space";
+    plugin.options.title = '{YOUR_OWN_TITLE}';
     if (CSPHelper.isCSPEnabled) {
       plugin.options.csp = CSPHelper.policies.trim();
     }
@@ -90,9 +82,8 @@ function removeHashFromCssClasses(config, helpers) {
 export default (config, env, helpers, options) => {
   setPreloadingStrategy(config, helpers);
   setEnvKeys(config, helpers);
-  extendHtmlConfig(config, helpers, env);
+  extendHtmlConfig(config, helpers);
   setImportPathsRelativeToSrcFolder(config, env);
   removeHashFromCssClasses(config, helpers);
   config.externals = { ...config.externals, canvas: 'pdf.js' };
 };
-
