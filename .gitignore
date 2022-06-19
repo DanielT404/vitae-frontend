@@ -1,15 +1,10 @@
-node_modules
+/node_modules
 /.devcontainer
 /build
-/cypress/videos/*.mp4
 /package-backup
 /*.log
 preact.config.js
-preact.config.production.js
-cypress.config.js
-cypress.config.production.js
 ngrok.exe
 size-plugin.json
-.env
 .DS_Store
 

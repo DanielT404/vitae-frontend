@@ -1,0 +1,12 @@
+/.devcontainer
+/.git
+/build
+/node_modules
+/package-backup
+/e2e
+size-plugin.json
+README.md
+README_after_build_stage.md
+.DS_Store
+.prettierrc
+.gitignore

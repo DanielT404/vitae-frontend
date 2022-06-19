@@ -3,7 +3,12 @@ import { SEND_EMAIL_API_ROUTE } from 'utils/global/constants';
 
 async function sendEmail({ name, email, message, token } : { name: string, email: string, message: string, token: string }) {
   try {
-    const response = await fetch(getPathAPI(SEND_EMAIL_API_ROUTE), {
+    getPathAPI(SEND_EMAIL_API_ROUTE);
+  } catch(err) {
+    throw new Error(`Couldn't get API path. Error message: \n \t${err}`);
+  }
+  try {
+    const response = await fetch(getPathAPI(SEND_EMAIL_API_ROUTE) as string, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -18,7 +23,9 @@ async function sendEmail({ name, email, message, token } : { name: string, email
     });
     const data = await response.json();
     return data;
-  } catch (err) {}
+  } catch (err) {
+    throw new Error(err as string);
+  }
 }
 export type EmailResponse = {
   success: boolean,

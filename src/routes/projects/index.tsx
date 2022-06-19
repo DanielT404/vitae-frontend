@@ -24,12 +24,9 @@ function Projects() {
     setProjects(projects);
   }, []);
   useEffect(() => {
-    getProjects().catch(() => 
-      setProjects({
-        success: false,
-        data: []
-      })
-    );
+    getProjects().catch((err) => {
+      throw new Error(err);
+    });
   }, []);
 
   return (

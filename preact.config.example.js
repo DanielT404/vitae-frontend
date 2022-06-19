@@ -3,7 +3,7 @@
    of bundled index.html or not.
 */
 const CSPHelper = {
-  isCSPEnabled: false,
+  isCSPEnabled: true,
   policies: `
       {YOUR_OWN_CSP_POLICIES_HERE}
     `
@@ -24,12 +24,7 @@ function setPreloadingStrategy(config, helpers) {
 
 /*
    Define application level environment keys at build time.
-   Useful in order to avoid exposing sensitive keys in the code source and reference them in code using {process.env.ENV_VARIABLE} instead.
-   
-   Set `process.env.DEV_MODE` value to either "local" or "docker", depending on where you will run the application.
-   By setting it to "local", all of the API routes will be resolved to your current host (localhost).
-   By setting it to "docker", all of the API routes will be routed within the internal Docker networks.
-   
+   Useful in order to avoid exposing sensitive keys in the code source and reference them in code using {process.env.ENV_VARIABLE} instead.   
 */
 function setEnvKeys(config, helpers) {
   const { plugin } = helpers.getPluginsByName(config, 'DefinePlugin')[0] || {};
@@ -38,21 +33,19 @@ function setEnvKeys(config, helpers) {
   );
   plugin.definitions['process.env.GOOGLE_RECAPTCHA_SECRET_KEY'] =
     JSON.stringify('{YOUR_OWN_SECRET_KEY}');
-  plugin.definitions['process.env.DEV_MODE'] = JSON.stringify(
-    "docker"
-  );
 }
 
 /*
    Set your own application title.
-   If CSPHelper.isCSPEnabled is true, we append additional csp option.
-   Properties set within the options are available to dynamically placehold values inside /src/template.html
+   If CSPHelper.isCSPEnabled is true, we append additional CSP policies set within `CSPHelper.policies` property.
+   Policies will be dynamically inserted at build time inside /src/template.html.
+   Read more about Content-Security-Policy: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 */
 function extendHtmlConfig(config, helpers) {
   const { plugin } = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
   if (plugin) {
     plugin.options.title = '{YOUR_OWN_TITLE}';
-    if (CSPHelper.isCSPEnabled && env.isProd) {
+    if (CSPHelper.isCSPEnabled) {
       plugin.options.csp = CSPHelper.policies.trim();
     }
   }

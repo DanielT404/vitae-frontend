@@ -25,12 +25,9 @@ const Desktop = () => {
     dispatch(setFiles(files));
   }, []);
   useEffect(() => {
-    getFiles().catch(() => 
-      dispatch(setFiles({
-        success: false,
-        data: []
-      }))
-    );
+    getFiles().catch((err) => {
+      throw new Error(err);
+    });
   }, []);
 
   return (

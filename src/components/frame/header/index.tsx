@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'components/store';
 
 import { closeFrameView, toggleNavTree } from 'features/frame/frameSlice';
-import { clearFileInfo, closeFileModeView } from 'features/file/fileSlice';
+import { clearFileInfo, clearPreviousActiveFile, closeFileModeView } from 'features/file/fileSlice';
 import { setHighlightState, setSearchText } from 'features/highlight/highlightSlice';
 import { updateToken } from 'features/captcha/captchaSlice';
 
@@ -148,6 +148,7 @@ function HeaderFrame({ path }: { path: string}) {
             onClick={() => {
               dispatch(updateToken(''))
               dispatch(closeFrameView());
+              dispatch(clearPreviousActiveFile());
               dispatch(clearFileInfo());
               dispatch(closeFileModeView());
             }}
