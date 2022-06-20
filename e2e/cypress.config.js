@@ -1,6 +1,6 @@
 const { defineConfig } = require("cypress");
 module.exports = defineConfig({
     e2e: {
-        baseUrl: 'https://idratherprogram.com'
+        baseUrl: 'http://localhost:8080'
     }
 });

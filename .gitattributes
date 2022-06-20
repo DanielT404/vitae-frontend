@@ -1,12 +1,1 @@
-/src/* merge=theirs
-/e2e/* merge=theirs
-
-/src/utils/global/constants.ts merge=ours
-/src/utils/global/getPathAPI.ts merge=ours
-/e2e/cypress.config.js merge=ours
-Dockerfile merge=ours
-.dockerignore merge=ours
-cspCompliance.sh merge=ours
-startContainer.sh merge=ours
-preact.config.example.js merge=ours
-README.md merge=ours
+./* merge=ours
