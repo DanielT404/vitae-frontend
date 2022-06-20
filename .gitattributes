@@ -1,1 +1,4 @@
+/src/* merge=theirs
+/e2e/* merge=theirs
+
 ./* merge=ours

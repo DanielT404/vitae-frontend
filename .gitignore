@@ -5,4 +5,5 @@
 /*.log
 size-plugin.json
 .DS_Store
+preact.config.js
 
