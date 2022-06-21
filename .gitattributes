@@ -1,5 +1,6 @@
 Dockerfile merge=ours
 .dockerignore merge=ours
+.gitignore merge=ours
 .gitattributes merge=ours
 
 /e2e/cypress.config.js merge=ours
