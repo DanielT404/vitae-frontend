@@ -1,1 +1,11 @@
-./* merge=ours
+Dockerfile merge=ours
+.dockerignore merge=ours
+.gitattributes merge=ours
+
+/e2e/cypress.config.js merge=ours
+/src/utils/global/constants.ts merge=ours
+/src/utils/global/getPathAPI.ts merge=ours
+
+preact.config.js merge=ours
+README.md merge=ours
+
