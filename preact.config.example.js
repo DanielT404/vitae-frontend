@@ -3,8 +3,8 @@
    of bundled index.html or not.
 */
 const CSPHelper = {
-    isCSPEnabled: false,
-    policies: ``
+    isCSPEnabled: true,
+    policies: `{YOUR OWN CSP POLICIES}`
 };
 
 /* 
@@ -23,23 +23,13 @@ function setPreloadingStrategy(config, helpers) {
 /*
    Define application level environment keys at build time.
    Useful in order to avoid exposing sensitive keys in the code source and reference them in code using {process.env.ENV_VARIABLE} instead.
-
-   Google reCAPTCHA keys are publicly available to anyone and are for testing/during development phase only.
-   Source: https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha.-what-should-i-do
-   
-   Set `process.env.DOCKER_MODE` value to either "local" or "cypress-testing", depending on the application running context.
-    By setting it to "local", all of the API routes will be resolved to your current host (localhost).
-    By setting it to "cypress-testing", all of the API routes will be resolved within the internal Docker network.
 */
 function setEnvKeys(config, helpers) {
     const { plugin } = helpers.getPluginsByName(config, 'DefinePlugin')[0] || {};
-    plugin.definitions['process.env.GOOGLE_RECAPTCHA_SITE_KEY'] = JSON.stringify(
-        '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-    );
+    plugin.definitions['process.env.GOOGLE_RECAPTCHA_SITE_KEY'] =
+        JSON.stringify({ YOUR_OWN_SITE_KEY });
     plugin.definitions['process.env.GOOGLE_RECAPTCHA_SECRET_KEY'] =
-        JSON.stringify('6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe');
-    plugin.definitions['process.env.DOCKER_MODE'] =
-        JSON.stringify('local');
+        JSON.stringify({ YOUR_OWN_SECRET_KEY });
 }
 
 /*

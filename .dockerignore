@@ -1,10 +1,12 @@
-/.devcontainer
-/.git
-/build
 /node_modules
 /package-backup
+/build
 /e2e
-size-plugin.json
+/cypress
+/.devcontainer
+/.git
 .DS_Store
 .prettierrc
 .gitignore
+README.md
+preact.config.example.js

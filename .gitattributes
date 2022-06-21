@@ -2,3 +2,4 @@
 /e2e/* merge=theirs
 
 ./* merge=ours
+/e2e/cypress.config.js merge=ours
