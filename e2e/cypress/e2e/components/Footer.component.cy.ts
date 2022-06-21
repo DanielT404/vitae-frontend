@@ -19,9 +19,7 @@ describe('Footer.component.cy.ts', () => {
     
     it('should trigger existance of file window on file click or touch', () => {
         cy.visit('/desktop');
-        cy.intercept('GET','/api/files').as('getFiles').then((interceptor) => {
-            console.log(interceptor);
-        });
+        cy.intercept('GET','/api/files').as('getFiles');
         cy.wait('@getFiles');
         cy.get('.fileIcon').first().dblclick();
         cy.get('.innerWindow').should('exist');
