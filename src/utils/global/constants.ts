@@ -12,11 +12,11 @@ const API_PRODUCTION_PATHNAME_PREFIX = "api";
 /* Define the pathname corresponding to the backend API routes. Default values:
     1. GET /files - pathname is "files"
     2. GET /projects - pathname is "projects"
-    3. POST /sendEmail - pathname is "sendEmail"
+    3. POST /email - pathname is "sendEmail"
 */
 const GET_FILES_API_ROUTE = "files";
 const GET_PROJECTS_API_ROUTE = "projects";
-const SEND_EMAIL_API_ROUTE = "sendEmail";
+const SEND_EMAIL_API_ROUTE = "email";
 
 /* -------------     End constants ------------- /*
 
