@@ -14,7 +14,7 @@ const AboutMe = () => {
     <div class={style.text}>
       {isViewFileMode && <WindowFrame />}
       <p>
-        <Highlight source="Enthusiast, self-taught 24 year old programmer from Bucharest, Romaniassadsadas." />
+        <Highlight source="Enthusiast, self-taught 24 year old programmer from Bucharest, Romania." />
         <br />
         <Highlight source="Specialized in web development, keen on backend dev." />
         <br />
