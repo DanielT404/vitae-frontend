@@ -4,12 +4,16 @@
   "description": "Cypress E2E tests",
   "license": "MIT",
   "dependencies": {
+    "chokidar-cli": "^3.0.0",
     "typescript": "^4.7.3"
   },
   "devDependencies": {
-    "cypress": "10.1.0"
+    "cypress": "10.1.0",
+    "cypress-json-results": "^1.2.1",
+    "nodemon": "^2.0.19"
   },
   "scripts": {
-    "cypress:run": "cypress run"
+    "cypress:watch": "chokidar \"**/*.ts\" -c \"cypress run --no-exit --reporter json --reporter-options output=result.json\"",
+    "cypress": "cypress run --reporter json --reporter-options output=result.json"
   }
 }

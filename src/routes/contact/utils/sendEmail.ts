@@ -1,10 +1,11 @@
 import getPathAPI from 'utils/global/getPathAPI';
 import { SEND_EMAIL_API_ROUTE } from 'utils/global/constants';
 
-async function sendEmail({ name, email, message, token } : { name: string, email: string, message: string, token: string }) {
+async function sendEmail({ name, email, message, token }: { name: string, email: string, message: string, token: string }) {
+  console.log(name, email, message, token);
   try {
     getPathAPI(SEND_EMAIL_API_ROUTE);
-  } catch(err) {
+  } catch (err) {
     throw new Error(`Couldn't get API path. Error message: \n \t${err}`);
   }
   try {

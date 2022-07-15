@@ -15,7 +15,7 @@ import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { IFile, EStatus } from 'utils/interfaces/files/file.interface';
 
 
-const handleFileOpen = (file : IFile, dispatch : Dispatch<AnyAction>, isViewFrameModeActive : boolean, minimizedFileIdx : number) => {
+const handleFileOpen = (file: IFile, dispatch: Dispatch<AnyAction>, isViewFrameModeActive: boolean, minimizedFileIdx: number) => {
   if (!isViewFrameModeActive) dispatch(openFrameView());
   dispatch(openFileModeView());
   dispatch(addMinimizedFile({ ...file, Status: EStatus.Active }));
@@ -24,7 +24,7 @@ const handleFileOpen = (file : IFile, dispatch : Dispatch<AnyAction>, isViewFram
   dispatch(updateFileInfo({ ...file }));
 };
 
-const handleFileMinimizedOpen = (file : IFile, dispatch : Dispatch<AnyAction>, isViewFrameModeActive : boolean) => {
+const handleFileMinimizedOpen = (file: IFile, dispatch: Dispatch<AnyAction>, isViewFrameModeActive: boolean) => {
   if (!isViewFrameModeActive) dispatch(openFrameView());
   dispatch(openFileModeView());
   dispatch(updateFileInfo({ ...file }));
@@ -33,7 +33,7 @@ const handleFileMinimizedOpen = (file : IFile, dispatch : Dispatch<AnyAction>, i
   dispatch(triggerFileStatus({ ...file, Status: EStatus.Active }));;
 }
 
-const handleFileClose = (file : IFile, dispatch : Dispatch<AnyAction>) => {
+const handleFileClose = (file: IFile, dispatch: Dispatch<AnyAction>) => {
   dispatch(clearPreviousActiveFile());
   dispatch(resetMinimizedActiveFileQueue());
   dispatch(closeFileModeView());
@@ -41,8 +41,9 @@ const handleFileClose = (file : IFile, dispatch : Dispatch<AnyAction>) => {
   dispatch(clearFileInfo());
 };
 
-const handleFileMinimize = (file : IFile, dispatch: Dispatch<AnyAction>, minimizedFileIdx : number) => {
+const handleFileMinimize = (file: IFile, dispatch: Dispatch<AnyAction>, minimizedFileIdx: number) => {
   dispatch(enqueueMinimizedActiveFileIdx(minimizedFileIdx));
+  dispatch(clearFileInfo());
   dispatch(
     triggerFileStatus({
       ...file,

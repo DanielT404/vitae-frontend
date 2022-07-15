@@ -27,7 +27,7 @@ function setPreloadingStrategy(config, helpers) {
    Google reCAPTCHA keys are publicly available to anyone and are for testing/during development phase only.
    Source: https://developers.google.com/recaptcha/docs/faq#id-like-to-run-automated-tests-with-recaptcha.-what-should-i-do
    
-   Set `process.env.DOCKER_MODE` value to either "local" or "cypress-testing", depending on the application running context.
+   Set `process.env.PREACT_APP_MODE` value to either "local" or "cypress-testing", depending on the application running context.
     By setting it to "local", all of the API routes will be resolved to your current host (localhost).
     By setting it to "cypress-testing", all of the API routes will be resolved within the internal Docker network.
 */
@@ -38,8 +38,14 @@ function setEnvKeys(config, helpers) {
     );
     plugin.definitions['process.env.GOOGLE_RECAPTCHA_SECRET_KEY'] =
         JSON.stringify('6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe');
-    plugin.definitions['process.env.DOCKER_MODE'] =
-        JSON.stringify('local');
+}
+
+/*
+    Support of setting environment variables using .env file.
+*/
+function supportEnvFile(config) {
+    const Dotenv = require('dotenv-webpack');
+    config.plugins.push(new Dotenv({ path: './.env' }));
 }
 
 /*
@@ -48,7 +54,7 @@ function setEnvKeys(config, helpers) {
    Policies will be dynamically inserted at build time inside /src/template.html.
    Read more about Content-Security-Policy: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 */
-function extendHtmlConfig(config, helpers, env) {
+function extendHtmlConfig(config, helpers) {
     const { plugin } =
         helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
     if (plugin) {
@@ -89,10 +95,15 @@ function removeHashFromCssClasses(config, helpers) {
  */
 export default (config, env, helpers, options) => {
     setPreloadingStrategy(config, helpers);
+    supportEnvFile(config, helpers);
     setEnvKeys(config, helpers);
     extendHtmlConfig(config, helpers, env);
     setImportPathsRelativeToSrcFolder(config, env);
     removeHashFromCssClasses(config, helpers);
+    if (config.performance) {
+        config.performance.maxEntrypointSize = 512000;
+        config.performance.maxAssetSize = 512000;
+    }
     config.externals = { ...config.externals, canvas: 'pdf.js' };
 };
 
