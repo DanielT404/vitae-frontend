@@ -33,6 +33,15 @@ function setEnvKeys(config, helpers) {
 }
 
 /*
+    Support of setting environment variables using .env file.
+*/
+function supportEnvFile(config) {
+    const Dotenv = require('dotenv-webpack');
+    config.plugins.push(new Dotenv({ path: './.env' }));
+}
+
+
+/*
    Set your own application title.
    If CSPHelper.isCSPEnabled is true, we append additional CSP policies set within `CSPHelper.policies` property.
    Policies will be dynamically inserted at build time inside /src/template.html.
@@ -79,10 +88,15 @@ function removeHashFromCssClasses(config, helpers) {
  */
 export default (config, env, helpers, options) => {
     setPreloadingStrategy(config, helpers);
+    supportEnvFile(config, helpers);
     setEnvKeys(config, helpers);
     extendHtmlConfig(config, helpers, env);
     setImportPathsRelativeToSrcFolder(config, env);
     removeHashFromCssClasses(config, helpers);
+    if (config.performance) {
+        config.performance.maxEntrypointSize = 512000;
+        config.performance.maxAssetSize = 512000;
+    }
     config.externals = { ...config.externals, canvas: 'pdf.js' };
 };
 
