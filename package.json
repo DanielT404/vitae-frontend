@@ -1,8 +1,9 @@
 {
-  "private": true,
-  "name": "vitae-site",
-  "version": "0.0.0",
+  "author": "Daniel Țună",
+  "description": "My awesome online personal space... in its frontend version :-)",
+  "version": "1.0.0",
   "license": "MIT",
+  "name": "vitae-frontend",
   "scripts": {
     "build": "preact build --no-prerender",
     "start": "sirv build --port 8080 --cors --single --host --quiet",
