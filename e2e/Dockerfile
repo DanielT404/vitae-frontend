@@ -1,10 +1,10 @@
-FROM cypress/base:14
+FROM cypress/included:10.2.0
 WORKDIR /app
 
+COPY cypress.config.js .
 COPY package.json .
 COPY package-lock.json .
 COPY tsconfig.json .
 
-ENV CI=1
-RUN npm ci
+RUN npm install
 RUN npx cypress verify

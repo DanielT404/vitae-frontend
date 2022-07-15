@@ -5,7 +5,7 @@ import { RootState } from 'components/store';
 import { Link } from 'preact-router';
 
 import { openFrameView, closeFrameView } from 'features/frame/frameSlice';
-import { clearFileInfo, clearPreviousActiveFile, closeFileModeView, resetMinimizedActiveFileQueue } from 'features/file/fileSlice';
+import { clearFileInfo, clearMinimizedFiles, clearPreviousActiveFile, closeFileModeView, openFileModeView, resetMinimizedActiveFileQueue } from 'features/file/fileSlice';
 import { updateToken } from 'features/captcha/captchaSlice';
 
 import Icon from 'components/material-icon';
@@ -16,6 +16,8 @@ import style from './style.css';
 function Footer({ absolutePositionBottom } : { absolutePositionBottom?: boolean }) {
   const dispatch = useDispatch();
   const isViewFrameModeActive = useSelector((state: RootState) => state.frame.value);
+  let isFileInfo = useSelector((state: RootState) => state.file.fileInfo);
+  isFileInfo = Object.keys(isFileInfo).length > 0;
   return (
     <footer class={`${style.footer} ${absolutePositionBottom ? style.absolutePositionBottom : ''}`}>
       <Fragment>
@@ -23,15 +25,21 @@ function Footer({ absolutePositionBottom } : { absolutePositionBottom?: boolean 
           <Icon type="explore" handleClick={() => {
             dispatch(updateToken(''));
             dispatch(closeFrameView());
-            dispatch(clearPreviousActiveFile());
             dispatch(resetMinimizedActiveFileQueue());
-            dispatch(clearFileInfo());
+            dispatch(clearPreviousActiveFile());
             dispatch(closeFileModeView());
           }
           } />
         </Link>
         <Link id="cast" class={`${style.icon} ${isViewFrameModeActive && style.isActive}`}>
-          <Icon type="cast" handleClick={() => dispatch(openFrameView())} />
+          <Icon type="cast" handleClick={() => {
+            dispatch(openFrameView());
+            if(isFileInfo) {
+              dispatch(openFileModeView());
+            } else {
+              dispatch(resetMinimizedActiveFileQueue());
+            }
+          }} />
         </Link>
       </Fragment>
       <MinimizedFiles />

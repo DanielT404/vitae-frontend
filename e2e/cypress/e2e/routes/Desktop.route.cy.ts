@@ -1,11 +1,9 @@
 describe('Desktop.route.cy.ts', () => {
-    before(() => {
-        cy.visit("/desktop")
-        cy.intercept('GET', '/api/files').as('getFiles');
-        cy.wait('@getFiles');
-    })
 
     it('should display files', () => {
+        cy.visit("/desktop");
+        cy.intercept('GET', '/api/files').as('getFiles');
+        cy.wait('@getFiles');
         cy.get('.fileWrapper').should('have.length.above', 0);
     })
 

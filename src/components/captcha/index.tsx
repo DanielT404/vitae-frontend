@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useRef } from 'preact/compat';
+import { useRef, useEffect, useState } from 'preact/compat';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from 'components/store';

@@ -4,15 +4,15 @@ import { v4 as uuidv4 } from 'uuid';
 import { EStatus, IFile } from 'utils/interfaces/files/file.interface'
 import { IFiles } from 'utils/interfaces/files/files.interface'
 
-type FileState = { 
-  viewFileMode: boolean, 
+type FileState = {
+  viewFileMode: boolean,
   files: IFiles,
-  fileInfo: IFile | {}, 
+  fileInfo: IFile | {},
   minimizedFiles: IFile[] | [],
-  minimizedActiveFilesIdxQueue: [prevMinimizedFileIdx : number | undefined , currMinimizedFileIdx? : number]
+  minimizedActiveFilesIdxQueue: [prevMinimizedFileIdx: number | undefined, currMinimizedFileIdx?: number]
 };
 
-const initialState: FileState = { 
+const initialState: FileState = {
   viewFileMode: false,
   fileInfo: {},
   files: {
@@ -43,23 +43,26 @@ export const fileSlice = createSlice({
       state.fileInfo = {};
     },
     addMinimizedFile: (state, action: PayloadAction<IFile>) => {
-      let minimizedFiles : IFile[] = state.minimizedFiles;
+      let minimizedFiles: IFile[] = state.minimizedFiles;
       const isFileMinimizedAlready = minimizedFiles.filter((file) => file.Id === action.payload.Id).length > 0;
       if (isFileMinimizedAlready) {
-        let obj : IFile = Object.assign({}, action.payload);
+        let obj: IFile = Object.assign({}, action.payload);
         obj.Id = uuidv4();
         minimizedFiles.push(obj);
       } else {
         minimizedFiles.push(action.payload);
       }
     },
+    clearMinimizedFiles: (state) => {
+      state.minimizedFiles = [];
+    },
     closeMinimizedFile: (state, action) => {
-      let minimizedFiles : IFile[] = state.minimizedFiles;
+      let minimizedFiles: IFile[] = state.minimizedFiles;
       state.minimizedFiles = minimizedFiles.filter((file) => file.Id !== action.payload.Id);
     },
     triggerFileStatus: (state, action: PayloadAction<IFile>) => {
       const minimizedFileIdx = action.payload?.Idx;
-      const lastMinimizedFileIdx : number = state.minimizedFiles.length - 1;
+      const lastMinimizedFileIdx: number = state.minimizedFiles.length - 1;
       state.minimizedFiles[minimizedFileIdx ?? lastMinimizedFileIdx].Status = action.payload.Status;
     },
     enqueueMinimizedActiveFileIdx: (state, action: PayloadAction<number>) => {
@@ -69,8 +72,8 @@ export const fileSlice = createSlice({
       state.minimizedActiveFilesIdxQueue = [undefined];
     },
     clearPreviousActiveFile: (state) => {
-      let previousActiveFileIdx : number | undefined = state.minimizedActiveFilesIdxQueue[0];
-      if(previousActiveFileIdx === undefined) {
+      let previousActiveFileIdx: number | undefined = state.minimizedActiveFilesIdxQueue[0];
+      if (previousActiveFileIdx === undefined) {
         state.minimizedActiveFilesIdxQueue.shift();
       } else {
         previousActiveFileIdx = state.minimizedActiveFilesIdxQueue.shift();
@@ -78,7 +81,7 @@ export const fileSlice = createSlice({
       }
     },
     toggleOnMinimizedHover: (state, action) => {
-      const minimizedFileIdx : number = action.payload;
+      const minimizedFileIdx: number = action.payload;
       state.minimizedFiles[minimizedFileIdx].IsOnHover = !state.minimizedFiles[minimizedFileIdx].IsOnHover;
     }
   }
@@ -90,6 +93,7 @@ export const {
   updateFileInfo,
   clearFileInfo,
   addMinimizedFile,
+  clearMinimizedFiles,
   closeMinimizedFile,
   setFiles,
   toggleOnMinimizedHover,
