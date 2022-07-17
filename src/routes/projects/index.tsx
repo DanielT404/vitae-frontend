@@ -1,7 +1,9 @@
 import { Fragment, h } from 'preact';
 import { useContext, useEffect, useState, useCallback } from 'preact/hooks';
+import { RootState } from 'components/store';
 import { useSelector } from 'react-redux';
 
+import { IProjects } from 'utils/interfaces/projects/projects.interface';
 import { GET_PROJECTS_API_ROUTE } from 'utils/global/constants';
 import { get } from 'utils/functions/handleData';
 
@@ -10,9 +12,8 @@ import Highlight from 'components/highlight';
 
 import Theme from 'utils/contexts/Theme';
 
+import { Player } from '@lottiefiles/react-lottie-player';
 import style from './style.css';
-import { RootState } from 'components/store';
-import { IProjects } from 'utils/interfaces/projects/projects.interface';
 
 function Projects() {
   const isViewFileMode = useSelector((state: RootState) => state.file.viewFileMode);
@@ -31,6 +32,9 @@ function Projects() {
 
   return (
     <div class={`${style.projectsWrapper} ${theme === "light" && style.darkColor}`}>
+      <div class={style.projectsAnimationWrapper}>
+        <Player src='https://assets10.lottiefiles.com/private_files/lf30_WdTEui.json' className={style.projectsAnimation} loop autoplay />
+      </div>
       {isViewFileMode && <WindowFrame />}
       <div class={style.grid}>
         {projects.data && projects.data.map((project) => {

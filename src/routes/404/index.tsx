@@ -1,15 +1,20 @@
-import { Fragment, h } from 'preact'
+import { h } from 'preact'
 import { useContext } from 'preact/hooks';
 
 import Footer from 'components/footer';
 import Theme from 'utils/contexts/Theme';
+
+import { Player } from '@lottiefiles/react-lottie-player';
 import style from './style.css';
 
 const Page404Component = () => {
     const { theme } = useContext(Theme);
 
     return (
-        <Fragment>
+        <div class={style.page404}>
+            <div class={style.anim404Wrapper}>
+                <Player src='https://assets4.lottiefiles.com/packages/lf20_q2pevjuc.json' className={style.anim404} loop autoplay />
+            </div>
             <h1 class={`${style.message} ${theme === "light" ? style.darkColor_shade1 : ''}`}>
                 Oops, it seems you're lost. Let me get you back on track!
                 <ol class={style.routeList}>
@@ -31,7 +36,7 @@ const Page404Component = () => {
                 </ol>
             </h1>
             <Footer absolutePositionBottom />
-        </Fragment>
+        </div>
     )
 }
 

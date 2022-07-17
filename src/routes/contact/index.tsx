@@ -19,6 +19,8 @@ import { sendEmail, EmailResponse } from './utils/sendEmail';
 import WindowFrame from 'components/file/window';
 
 import Theme from 'utils/contexts/Theme';
+
+import { Player } from '@lottiefiles/react-lottie-player';
 import style from './style.css';
 
 const Contact = () => {
@@ -26,18 +28,18 @@ const Contact = () => {
   const { theme } = useContext(Theme);
 
   const isViewFileMode = useSelector((state: RootState) => state.file.viewFileMode);
-  
+
   const name = useSelector((state: RootState) => state.contactForm.name);
   const email = useSelector((state: RootState) => state.contactForm.email);
   const message = useSelector((state: RootState) => state.contactForm.message);
-  const token : string = useSelector((state: RootState) => state.captcha.token);
+  const token: string = useSelector((state: RootState) => state.captcha.token);
   const response = useSelector((state: RootState) => state.contactForm.response);
 
   const [isNotificationShown, setIsNotificationShown] = useState(false);
 
   const handleSubmit = async (e: h.JSX.TargetedEvent) => {
     e.preventDefault();
-    const mail : EmailResponse = await sendEmail({ name, email, message, token });
+    const mail: EmailResponse = await sendEmail({ name, email, message, token });
     if (mail.success) {
       dispatch(setName(''));
       dispatch(setEmail(''));
@@ -78,6 +80,9 @@ const Contact = () => {
           )}
         </div>
       )}
+      <div class={style.contactAnimationWrapper}>
+        <Player src='https://assets2.lottiefiles.com/packages/lf20_qgrjxypf.json' className={style.contactAnimation} loop autoplay />
+      </div>
       <div class={style.text}>
         {isViewFileMode && <WindowFrame />}
         <Highlight source="Reach me via" />

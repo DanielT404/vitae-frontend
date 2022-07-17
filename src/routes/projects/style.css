@@ -24,8 +24,21 @@
 .projectsWrapper {
   width: 100%;
   height: 100%;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 400px;
+  position: relative;
+}
+
+.projectsAnimationWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.projectsAnimation {
+  width: 400px;
+  height: 400px;
 }
 
 .darkColor {
@@ -44,13 +57,12 @@
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(auto-fit, 300px);
-  -webkit-column-gap: 4rem;
+  align-items: center;
+  justify-content: center;
   column-gap: 4rem;
   row-gap: 50px;
   width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 2rem;
 }
 
 .card {
@@ -107,6 +119,15 @@
   .projectsWrapper {
     margin: 0;
     padding: 0;
+  }
+
+  .projectsAnimationWrapper {
+    position: initial;
+  }
+
+  .projectsAnimation {
+    width: 200px;
+    height: 200px;
   }
 
   .card {

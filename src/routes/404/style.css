@@ -1,3 +1,21 @@
+.page404 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 1.3rem - 8rem);
+}
+
+.anim404 {
+  width: 800px;
+  height: 100%; 
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 20%
+}
+
 .message {
   display: flex;
   flex-direction: column;
@@ -6,6 +24,8 @@
   font-size: 2rem;
   padding: 2rem;
   height: 80%;
+  position: relative;
+  right: 4%;
 }
 
 .darkColor_shade1 {
@@ -32,17 +52,46 @@
 }
 
 @media (max-width: 560px) {
+  .page404 {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .anim404Wrapper {
+    width: 100%;
+    height: 300px;
+    position: relative;
+  }
+  .anim404 {
+    width: 100%;
+    height: 100%;
+  }
   .message {
     font-size: 1.3rem;
-    height: 72%;
+    height: 100%;
   }
 
   .routeList {
     font-size: 0.75rem;
+    padding-bottom: 4rem;
   }
 }
 
 @media (min-width: 560px) and (max-width: 1280px) {
+  .page404 {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .anim404Wrapper {
+    width: 100%;
+    height: 300px;
+    position: relative;
+  }
+  .anim404 {
+    width: 100%;
+    height: 100%;
+  }
   .message {
     height: 75%;
   }
