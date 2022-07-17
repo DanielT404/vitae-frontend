@@ -26,13 +26,13 @@ body {
 @media screen and (max-width: 560px) {
   body,
   html {
-    height: 100%;
+    height: auto;
   }
   #app {
     margin: initial;
     flex: 1 0 auto;
     overflow: none;
-    height: auto;
+    height: 100%;
   }
 }
 

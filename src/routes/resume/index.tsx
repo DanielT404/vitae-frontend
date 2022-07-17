@@ -1,15 +1,16 @@
 import { h, Fragment } from 'preact';
+import { RootState } from 'components/store';
 import { useSelector } from 'react-redux';
+
 import { Document, Page, pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-import { RootState } from 'components/store';
-import WindowFrame from 'components/file/window';
+import { CV_URL } from 'utils/global/constants';
 
+import WindowFrame from 'components/file/window';
 import Icon from 'components/material-icon';
 
 import style from './style.css';
-import { CV_URL } from 'utils/global/constants';
 
 const Resume = () => {
   const isViewFileMode = useSelector((state: RootState) => state.file.viewFileMode);
