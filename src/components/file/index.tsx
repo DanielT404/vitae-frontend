@@ -10,7 +10,7 @@ import Icon from 'components/material-icon';
 
 import style from './style.css';
 
-function File({ data } : { data : IFile }) {
+function File({ data }: { data: IFile }) {
   const isViewFrameModeActive = useSelector((state: RootState) => state.frame.value);
   const lastMinimizedFileIdx = useSelector((state: RootState) => state.file.minimizedFiles).length - 1;
   const dispatch = useDispatch();

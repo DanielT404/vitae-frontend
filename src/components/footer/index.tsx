@@ -13,7 +13,7 @@ import MinimizedFiles from 'components/file/minimized';
 
 import style from './style.css';
 
-function Footer({ absolutePositionBottom } : { absolutePositionBottom?: boolean }) {
+function Footer({ absolutePositionBottom }: { absolutePositionBottom?: boolean }) {
   const dispatch = useDispatch();
   const isViewFrameModeActive = useSelector((state: RootState) => state.frame.value);
   let isFileInfo = useSelector((state: RootState) => state.file.fileInfo);
@@ -25,8 +25,6 @@ function Footer({ absolutePositionBottom } : { absolutePositionBottom?: boolean 
           <Icon type="explore" handleClick={() => {
             dispatch(updateToken(''));
             dispatch(closeFrameView());
-            dispatch(resetMinimizedActiveFileQueue());
-            dispatch(clearPreviousActiveFile());
             dispatch(closeFileModeView());
           }
           } />
@@ -34,10 +32,8 @@ function Footer({ absolutePositionBottom } : { absolutePositionBottom?: boolean 
         <Link id="cast" class={`${style.icon} ${isViewFrameModeActive && style.isActive}`}>
           <Icon type="cast" handleClick={() => {
             dispatch(openFrameView());
-            if(isFileInfo) {
+            if (isFileInfo) {
               dispatch(openFileModeView());
-            } else {
-              dispatch(resetMinimizedActiveFileQueue());
             }
           }} />
         </Link>

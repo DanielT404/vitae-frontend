@@ -18,8 +18,8 @@ import { IFile, EStatus } from 'utils/interfaces/files/file.interface';
 const handleFileOpen = (file: IFile, dispatch: Dispatch<AnyAction>, isViewFrameModeActive: boolean, minimizedFileIdx: number) => {
   if (!isViewFrameModeActive) dispatch(openFrameView());
   dispatch(openFileModeView());
-  dispatch(addMinimizedFile({ ...file, Status: EStatus.Active }));
   dispatch(enqueueMinimizedActiveFileIdx(minimizedFileIdx));
+  dispatch(addMinimizedFile({ ...file, Status: EStatus.Active }));
   dispatch(clearPreviousActiveFile());
   dispatch(updateFileInfo({ ...file }));
 };
