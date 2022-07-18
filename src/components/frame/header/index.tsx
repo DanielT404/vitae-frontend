@@ -19,7 +19,7 @@ import Theme from 'utils/contexts/Theme';
 import Icon from 'components/material-icon';
 import style from './style.css';
 
-function HeaderFrame({ path }: { path: string}) {
+function HeaderFrame({ path }: { path: string }) {
   const navHandler = (type: "back" | "next") => {
     const nextPath = handleNavigation(path, type);
     if (nextPath) route(nextPath);
@@ -148,9 +148,6 @@ function HeaderFrame({ path }: { path: string}) {
             onClick={() => {
               dispatch(updateToken(''))
               dispatch(closeFrameView());
-              dispatch(clearPreviousActiveFile());
-              dispatch(clearFileInfo());
-              dispatch(closeFileModeView());
             }}
           >
             <span>x</span>
