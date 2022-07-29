@@ -41,13 +41,14 @@ const SHOW_DEFAULT_PATH = "/about-me";
 const YOUTUBE_VIDEO_IDENTIFIER = "8aZL9wMhGH0";
 const SMALL_VIEWPORT_BREAKPOINT = 1280;
 
-const CV_URL = "https://cv-variants-bucket.s3.eu-central-1.amazonaws.com/Daniel-Florin-Damian_Tuna_-_Junior_Software_Developer-1.pdf";
+const CV_URL = "https://cv-variants-bucket.s3.eu-central-1.amazonaws.com/Daniel-Florin-Damian_%C8%9Aun%C4%83_-_Backend_Developer.pdf";
 
-export { 
+
+export {
     API_DEVELOPMENT_HOSTNAME, API_DEVELOPMENT_PATHNAME_PREFIX, API_DEVELOPMENT_PORT,
     GET_FILES_API_ROUTE, GET_PROJECTS_API_ROUTE, SEND_EMAIL_API_ROUTE,
     DOCKER_BACKEND_SERVICE_NAME,
     SHOW_DEFAULT_PATH,
-    YOUTUBE_VIDEO_IDENTIFIER, SMALL_VIEWPORT_BREAKPOINT, 
+    YOUTUBE_VIDEO_IDENTIFIER, SMALL_VIEWPORT_BREAKPOINT,
     CV_URL
 }

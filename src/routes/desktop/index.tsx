@@ -17,11 +17,12 @@ import { IFiles } from 'utils/interfaces/files/files.interface';
 
 const Desktop = () => {
   const isViewFileMode = useSelector((state: RootState) => state.file.viewFileMode);
-  const fileArr : IFiles = useSelector((state: RootState) => state.file.files);
+  const fileArr: IFiles = useSelector((state: RootState) => state.file.files);
   const dispatch = useDispatch();
 
   const getFiles = useCallback(async () => {
-    const files = await get(GET_FILES_API_ROUTE);
+    let files = await get(GET_FILES_API_ROUTE);
+    files.data = JSON.parse(files.data);
     dispatch(setFiles(files));
   }, []);
   useEffect(() => {
