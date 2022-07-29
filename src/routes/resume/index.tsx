@@ -41,7 +41,7 @@ const Resume = () => {
       </div>
       <div class={style.resumeWrapper}>
         {isViewFileMode && <WindowFrame />}
-        <Document file="https://cv-variants-bucket.s3.eu-central-1.amazonaws.com/Daniel-Florin-Damian_Tuna_-_Junior_Software_Developer-1.pdf" className={style.pdfViewer}>
+        <Document file={CV_URL} className={style.pdfViewer}>
           <Page pageNumber={_CV_FIRST_PAGE} className={style.pdfPage} />
           <Page pageNumber={_CV_SECOND_PAGE} className={`${style.pdfPage} ${style.noOverflowY}`} />
         </Document>

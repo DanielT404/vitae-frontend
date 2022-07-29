@@ -11,8 +11,6 @@ import WindowFrame from 'components/file/window';
 import Highlight from 'components/highlight';
 
 import Theme from 'utils/contexts/Theme';
-
-import { Player } from '@lottiefiles/react-lottie-player';
 import style from './style.css';
 
 function Projects() {
@@ -32,9 +30,6 @@ function Projects() {
 
   return (
     <div class={`${style.projectsWrapper} ${theme === "light" && style.darkColor}`}>
-      <div class={style.projectsAnimationWrapper}>
-        <Player src='https://assets10.lottiefiles.com/private_files/lf30_WdTEui.json' className={style.projectsAnimation} loop autoplay />
-      </div>
       {isViewFileMode && <WindowFrame />}
       <div class={style.grid}>
         {projects.data && projects.data.map((project) => {
